@@ -1,3 +1,4 @@
+'''
 print("Hello World!")
 print()
 # This is a Comment. I can write whatever I want
@@ -46,3 +47,47 @@ real_age = int(input("How old are you? >_"))
 hidden_age = real_age + 5
 print(hidden_age)
 print("%d is incredibly old. You are actually %d old." % (hidden_age, real_age))
+'''
+
+# functions
+def printHelloWorld():
+    print("Hello World!")
+
+
+printHelloWorld()
+'''
+This is a multi-line comment
+I can type anywhere here/
+'''
+
+
+# f(x) = 2x + 3
+def f(x):
+    print(2*x + 3)
+
+
+f(1)
+f(5)
+f(5000)
+
+# Loops
+for i in(1, 2, 3):
+    printHelloWorld()
+
+print()
+for i in range(10):
+    printHelloWorld()
+
+print()
+for i in range(5):  # Range starts at 0 and goes to 4
+    f(i)
+
+for i in range(5):
+    print(i**2)
+
+
+a = 0
+# While loops
+while a < 10:
+    print(a)
+    a += 1  # This is the same thing as a = a + 1
