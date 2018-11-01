@@ -36,7 +36,6 @@ print("I have a car called %s. It's pretty nice." % car_name)
 
 # Input
 # name = input("what is your name? ")
-# print("hello %s" % name)
 
 # Auto-Comment - Ctrl + /
 # age = input ("How old are you? ")
@@ -50,6 +49,7 @@ print("%d is incredibly old. You are actually %d old." % (hidden_age, real_age))
 '''
 
 # functions
+# print("hello %s" % name)
 def printHelloWorld():
     print("Hello World!")
 
@@ -118,3 +118,14 @@ def grade_calc(percentage):
 
 
 print(grade_calc(90))
+
+# Equality Statements
+print(5 > 3)
+print(5 >= 3)
+print(3 == 3)
+print(3 != 4)
+'''
+a = 3 # A is set to equal 3
+a==3 # Is a equal to 3?
+'''
+
