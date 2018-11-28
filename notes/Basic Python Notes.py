@@ -129,3 +129,88 @@ a = 3 # A is set to equal 3
 a==3 # Is a equal to 3?
 '''
 
+# Lists
+shopping_list = ["whole milk", "PC", "Eggs", "Switch"]
+print(shopping_list)
+print(shopping_list[0])
+print("The second thing in the list is %s" % shopping_list[1])
+print("The length of the list is %d" % len(shopping_list))
+
+# Changing Elements in a List
+shopping_list[0] = "2% milk"
+print(shopping_list)
+print(shopping_list[0])
+
+# Looping through lists
+for item in shopping_list:
+    print(item)
+
+'''
+1. Make a list
+2. Change the 3rd thing in the list
+3. Print the item
+4. Print the full list
+'''
+
+# List
+school_items = ["backpack", "notebook", "pencils", "binder"]
+school_items[2] = "pens"
+print("The last thing in the list is %s" % school_items[len(school_items) - 1])
+print(school_items)
+
+# Getting part of a list
+print(school_items[1:3])
+print(school_items[1:4])
+print(school_items[1:])
+print(school_items[:2])
+
+# Adding things to a list
+holiday_list = [] # ALWAYS USE SQUARE BRACKETS
+holiday_list.append("Tacos")
+holiday_list.append("Bumblebee")
+holiday_list.append("Red Dead Redemption 2")
+print(holiday_list)
+# Notice this is "object.method(Parameters)"
+
+# Removing things from a list
+holiday_list.remove("Tacos")
+print(holiday_list)
+
+'''
+1. make a new list with 3 items
+2. add a 4th item to the list
+3. remove one of the first three items from the list
+'''
+
+electronics_list = ["phone", "laptop", "television"]
+electronics_list.append("tablet")
+electronics_list.remove("television")
+print(electronics_list)
+
+# ALSO removing things from a list
+holiday_list.pop(0)  # Removes the item at index 0
+print(holiday_list)
+
+# Tuple
+brands = ("apple", "Samsung", "HTC")
+colors = ['blue', 'pink', 'orange', 'yellow', 'green', 'purple', 'black',
+          'red', 'teal', 'gold', 'brown', 'cyan', 'magenta', 'turquoise', 'white', 'gray']
+print(len(colors))
+
+# Find the index
+print(colors.index("gold"))
+
+# Changing things into a list
+string1 = "turquoise"
+list1 = list(string1)
+print(list1)
+
+for character in list1:
+    if character == "u":
+        # replace with a *
+        current_index = list1.index(character)
+        list1.pop(current_index)
+        list1.insert(current_index, "*")
+
+# Changing lists into strings
+print("".join(list1))
