@@ -214,3 +214,7 @@ for character in list1:
 
 # Changing lists into strings
 print("".join(list1))
+
+# Function Practice
+
+def pythagorean
