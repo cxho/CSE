@@ -216,5 +216,8 @@ for character in list1:
 print("".join(list1))
 
 # Function Practice
+# a**2 + b**2 = c**2
+def pythagorean(a, b):
+    return (a**2 + b**2)**(1/2)
 
-def pythagorean
+print(pythagoreon(3, 4))
