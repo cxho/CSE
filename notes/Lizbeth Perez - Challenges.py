@@ -34,14 +34,14 @@ elif number < 0:
 
 # Challenge 5
 r = int(input("What is the radius of a circle"))
-pi = 3.14
+pi = 3.141
 area2 = pi*r**2
 print("area", area2)
 
 
 # Challenge 6
 r = int(input("What is the radius of the sphere?"))
-pi = 3.14
+pi = 3.141
 volume = 4/3*pi*r**3
 print("volume", volume)
 
@@ -77,4 +77,3 @@ print(is_vowel('l'))
 print(is_vowel('i'))
 print(is_vowel('o'))
 print(is_vowel('t'))
-
