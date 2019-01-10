@@ -215,9 +215,11 @@ for character in list1:
 # Changing lists into strings
 print("".join(list1))
 
+
 # Function Practice
 # a**2 + b**2 = c**2
 def pythagorean(a, b):
     return (a**2 + b**2)**(1/2)
+
 
 print(pythagoreon(3, 4))
