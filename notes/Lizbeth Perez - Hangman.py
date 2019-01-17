@@ -12,16 +12,16 @@ word_list = list(string1)
 print(word_list)
 
 while guesses_left > 0:
-    guess = input("Guess a letter.")
-    letters_guessed.append(guess)
-    print("you guessed the letter %s" % guess)
-    for guess in letters_guessed:
-        if guess == list(string.ascii_letters):
-            current_index = letters_guessed.index(guess)
-            letters_guessed.pop(current_index)
-            letters_guessed.insert(current_index, "_")
-            print(letters_guessed)
-        else:
-            guesses_left -= 1
-            print(guesses_left)
-            print(letters_guessed)
+    if guess in word_list:
+        guess = input("Guess a letter.")
+        letters_guessed.append(guess)
+        print("you guessed the letter %s" % guess)
+    if guess not in word_list:
+        print(guesses_left)
+        guesses_left -= 1
+
+for character in word_list:
+    current_index = word_list.index(character)
+    word_list.pop(current_index)
+    word_list.insert(current_index, "_")
+print(word_list)
