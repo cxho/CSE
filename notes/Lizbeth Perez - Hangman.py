@@ -15,11 +15,20 @@ for character in word_list:
     word_list.insert(current_index, "_")
 print("".join(word_list))
 
+print(word)
+
 while guesses_left > 0:
-    if guess in word_list:
-        guess = input("Guess a letter.")
-        letters_guessed.append(guess)
+    guess = input("Guess a letter.")
+    word_list = list(word_list)
+    if guess in word:
+        current_index = word.index(guess)
+        word_list.pop(current_index)
+        word_list.insert(current_index, guess)
+        word_list = "".join(word_list)
+        print(word_list)
         print("you guessed the letter %s" % guess)
     if guess not in word_list:
         print(guesses_left)
         guesses_left -= 1
+
+print(letters_guessed)
