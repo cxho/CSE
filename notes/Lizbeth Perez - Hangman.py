@@ -5,9 +5,9 @@ word_bank = ["i am starving", "Backpack", "clock", "sweaters", "pizza", "i like 
 guesses_left = 8
 letters_guessed = []
 word = random.choice(word_bank)
+real_letters = list(word)
 
-string1 = word
-word_list = list(string1)
+word_list = list(word.lower())
 
 for character in word_list:
     current_index = word_list.index(character)
@@ -15,20 +15,28 @@ for character in word_list:
     word_list.insert(current_index, "_")
 print("".join(word_list))
 
+
 while guesses_left > 0:
-    guess = input("Guess a letter.")
-    word_list = list(word_list)
-    if guess in word:
+    word = list(word)
+    if word_list == word:
+        print("You guessed correctly. ")
+        exit()
+    guess = input("Guess a letter.").lower()
+    print("you guessed the letter %s" % guess)
+    letters_guessed.append(guess)
+    while guess in word:
         current_index = word.index(guess)
+        word.pop(current_index)
+        word.insert(current_index, "-")
         word_list.pop(current_index)
-        word_list.insert(current_index, guess)
-        word_list = "".join(word_list)
-        print(word_list)
-        print("you guessed the letter %s" % guess)
-        letters_guessed.append(guess)
+        word_list.insert(current_index, real_letters[current_index])
+        print("".join(word_list))
         print("The letters you have guessed are %s" % letters_guessed)
     if guess not in word_list:
         guesses_left -= 1
-        print(guesses_left)
-        letters_guessed.append(guess)
+        print("You have %s guesses left" % guesses_left)
         print("The letters you have guessed are %s" % letters_guessed)
+
+
+if guesses_left == 0:
+    print("You Lost!!!")
