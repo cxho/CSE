@@ -1,7 +1,7 @@
 import random
 
-word_bank = ["i am starving", "Backpack", "clock", "sweaters", "pizza", "i like turtles", "tables", "camels",
-             "Dora the Explorer", "did you do your homework?"]
+word_bank = ["i am starving", "backpack", "clock", "sweaters", "pizza", "i like turtles", "tables", "camels",
+             "dora the explorer", "did you do your homework"]
 guesses_left = 8
 letters_guessed = []
 word = random.choice(word_bank)
@@ -15,10 +15,9 @@ for character in word_list:
     word_list.insert(current_index, "_")
 print("".join(word_list))
 
-
 while guesses_left > 0:
     word = list(word)
-    if word_list == word:
+    if word_list == real_letters:
         print("You guessed correctly. ")
         exit()
     guess = input("Guess a letter.").lower()
