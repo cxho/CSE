@@ -20,4 +20,3 @@ print(colors)
 print(len(colors))
 print(colors[1])
 
-for i in range(len(word)):
