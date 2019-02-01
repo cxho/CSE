@@ -106,3 +106,6 @@ for state, facts in complex_dictionary.items():
     print("=" * 20)
 
 
+states['AL'] = "Alaska?"
+
+states['AL'] = "Alabama"

@@ -1,25 +1,33 @@
 world_map = {
-    'R19A': {
-        'NAME': "Wiebe's Classroom",
+    "WINNIE'S_TREEHOUSE": {
+        'NAME': "Winnie's Treehouse",
         'DESCRIPTION': "This is the classroom that you are in right now. It has two exits to the north side.",
         'PATHS': {
-            'NORTH': "PARKING_LOT"
+            'NORTHEAST': "CREEPY_CAVE"
 
         }
     },
-    'PARKING_LOT': {
-        'NAME': "The Edison Parking Lot",
+    'CREEPY_CAVE': {
+        'NAME': "The Creepy Cave",
         'DESCRIPTION': "There are cars parked here. To the south is Mr. Wiebe's room.",
         'PATHS': {
-            'SOUTH': "R19A"
+            'EAST': "POISONOUS_POND",
+            'SOUTHWEST': "WINNIE'S_TREEHOUSE"
          }
     },
-
+    'POISONOUS_POND': {
+        'NAME': "The Poisonous Pond",
+        'DESCRIPTION': "t",
+        'PAST': {
+            'SOUTH': "",
+            'WEST': "CREEPY_CAVE"
+        }
+    }
 }
 
 # Other Variables
-current_node = world_map["R19A"]
-directions = ["NORTH", "SOUTH", "EAST", "WEST", "UP", "DOWN"]
+current_node = world_map["WINNIE'S_TREEHOUSE"]
+directions = ["NORTH", "SOUTH", "EAST", "WEST", "UP", "DOWN", "NORTHEAST", "SOUTHEAST", "NORTHWEST", "SOUTHWEST"]
 playing = True
 
 # Controller
@@ -34,3 +42,5 @@ while playing:
             current_node = world_map[room_name]
         except KeyError:
             print("I can't go that way.")
+    else:
+        print("command not recognized")
