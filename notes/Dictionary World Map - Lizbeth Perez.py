@@ -1,28 +1,42 @@
 world_map = {
     "WINNIE'S_TREEHOUSE": {
         'NAME': "Winnie's Treehouse",
-        'DESCRIPTION': "This is the classroom that you are in right now. It has two exits to the north side.",
+        'DESCRIPTION': "This is Winnie's Treehouse. You look around to see if you could find any clues on what could've"
+                       "taken Winnie. You find a note that says, '",
         'PATHS': {
-            'NORTHEAST': "CREEPY_CAVE"
+            'NORTHEAST': "",
+            'NORTHWEST': "CREEPY_CAVE"
 
         }
     },
     'CREEPY_CAVE': {
         'NAME': "The Creepy Cave",
-        'DESCRIPTION': "There are cars parked here. To the south is Mr. Wiebe's room.",
+        'DESCRIPTION': "The cave is extremely dark. There's  ' ",
         'PATHS': {
-            'EAST': "POISONOUS_POND",
-            'SOUTHWEST': "WINNIE'S_TREEHOUSE"
+            'WEST': "POISONOUS_POND",
+            'SOUTHEAST': "WINNIE'S_TREEHOUSE"
          }
     },
     'POISONOUS_POND': {
         'NAME': "The Poisonous Pond",
-        'DESCRIPTION': "t",
-        'PAST': {
-            'SOUTH': "",
-            'WEST': "CREEPY_CAVE"
+        'DESCRIPTION': "It is really nasty in here. It's humid, hot, and it smells terrible. You watch a bird drink out"
+                       "the water and die instantly. You look to your right and stuck on a tree you see a note that"
+                       "says, '",
+        'PATHS': {
+            'SOUTH': "FIRE_FOREST",
+            'EAST': "CREEPY_CAVE"
         }
-    }
+    },
+    'FIRE_FOREST': {
+        'NAME': "The Fire Forest",
+        'DESCRIPTION': "You arrive at the forest. You soon realize why it is called the Fire Forest. There's these"
+                       "bear-looking animals that shoot fire out there mouth. You look around and you find another note"
+                       "written on a rock that says, '",
+        'PATHS': {
+            'NORTH': "POISONOUS_POND",
+            'EAST': ""
+        }
+    },
 }
 
 # Other Variables
