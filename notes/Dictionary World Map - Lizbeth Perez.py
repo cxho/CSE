@@ -2,7 +2,8 @@ world_map = {
     "WINNIE'S_TREEHOUSE": {
         'NAME': "Winnie's Treehouse",
         'DESCRIPTION': "This is Winnie's Treehouse. You look around to see if you could find any clues on what could've"
-                       "taken Winnie. You find a note that says, '",
+                       "taken Winnie. You find a note that says, 'Both don't have very pleasing names, but both are "
+                       "the same. Which one do you go to?'",
         'PATHS': {
             'NORTHEAST': "DISTURBING_CAVE",
             'NORTHWEST': "CREEPY_CAVE"
@@ -11,7 +12,9 @@ world_map = {
     },
     'CREEPY_CAVE': {
         'NAME': "The Creepy Cave",
-        'DESCRIPTION': "The cave is extremely dark. There's bats flying everywhere ' ",
+        'DESCRIPTION': "The cave is extremely dark. There's bats flying everywhere, One of the bats lands on your head"
+                       "so you hit it with your shoes. When it falls a note falls along with it. The note says, 'You "
+                       "could go back, or you could continue. You chose?'",
         'PATHS': {
             'WEST': "POISONOUS_POND",
             'SOUTHEAST': "WINNIE'S_TREEHOUSE"
@@ -21,7 +24,7 @@ world_map = {
         'NAME': "The Poisonous Pond",
         'DESCRIPTION': "It is really nasty in here. It's humid, hot, and it smells terrible. You watch a bird drink out"
                        "the water and die instantly. You look to your right and stuck on a tree you see a note that"
-                       "says, '",
+                       "says, 'You chose to continue. '",
         'PATHS': {
             'SOUTH': "FIRE_FOREST",
             'EAST': "CREEPY_CAVE"
@@ -34,7 +37,7 @@ world_map = {
                        "written on a rock that says, '",
         'PATHS': {
             'NORTH': "POISONOUS_POND",
-            'EAST': ""
+            'EAST': "PAIN_PLATEAU"
         }
     },
     'DISTURBING_CAVE': {
@@ -43,7 +46,7 @@ world_map = {
                        "dripping from the ceiling. On your left you see a big rat with a note on its back. You fight "
                        "the rat for the note until you finally get it. The note says, ''",
         'PATHS': {
-            'NORTH': "DISTURBING_CAVE",
+            'NORTHEAST': "ROCKY_MOUNTAIN",
             'SOUTHWEST': "WINNIE'S_TREEHOUSE",
             'EAST': "LOVELY_LAKE"
         }
@@ -55,7 +58,8 @@ world_map = {
                        "box. You find a note that says, '",
         'PATHS': {
             'NORTH': "ROCKY_MOUNTAIN",
-            'SOUTH': "RAINY_RIVER"
+            'SOUTH': "RAINY_RIVER",
+            'WEST': 'DISTURBING_CAVE'
         }
     },
     'ROCKY_MOUNTAIN': {
@@ -100,10 +104,53 @@ world_map = {
                         "can't tell if they're fake or real. You see one running in the distance and you panick, but "
                         "you realise he is carrying a note. ",
         'PATHS': {
-            'SOUTHWEST': '',
+            'SOUTHWEST': 'VIGOROUS_VOLCANO',
             'NORTHEAST': 'SLIPPERY_STREET'
         }
     },
+    'VIGOROUS_VOLCANO': {
+        'NAME': 'The Vigorous Volcano',
+        'DESCRIPTIONS': "The volcano is big and steam is coming out from the top. At the top of the volcano there is a"
+                        "surfboard with a paper. You walk on to the top and read the note, which says, ''",
+        'PATHS': {
+            'NORTHEAST': 'ABANDONED_PARK',
+            'EAST': 'VILLAINOUS_VALLEY',
+            'NORTHWEST': 'WONDERFUL_WATERFALL'
+        }
+    },
+    'VILLAINOUS_VALLEY': {
+        'NAME': 'The Villainous Valley',
+        'DESCRIPTIONS': "It is really hot and you feel like you are about to faint. You reach into your backpack to"
+                        "get water. As you reach into your backpack, you see a small lizard following you. It appears"
+                        "to have a note. You read the note and it says, '",
+        'PATHS': {
+            'WEST': 'VIGOROUS_VOLCANO',
+            'NORTHWEST': 'PAIN_PLATEAU'
+        }
+    },
+    'WONDERFUL_WATERFALL': {
+        'NAME': 'The Wonderful Waterfall',
+        'DESCRIPTION': "The waterfall was beautiful. It was fresh and it was right what you needed to relax. You start"
+                       "picking rocks to see if you could find any note. Finally under one rock, you find something "
+                       "that might help you find Winnie. It is an empty honey bowl, with a note written at the bottom.",
+        'PATHS': {
+            'EAST': 'VILLAINOUS_VALLEY',
+            'SOUTHEAST': 'VIGOROUS_VOLCANO',
+            'NORTHEAST': 'PAIN_PLATEAU'
+        }
+    },
+    'PAIN_PLATEAU': {
+        'NAME': 'The Pain Plateau',
+        'DESCRIPTION': "The Pain Plateau was definitely really painful to climb. When you reach the top there is 2 big"
+                       "rocks. They are completely different, but they have one thing in common: they both have a note."
+                       "Both of the notes are different one talks about a wonderful place and they other one talks "
+                       "about the worst place ever imaginable. You don't know which way to go. ",
+        'PATHS': {
+            'SOUTHWEST': 'WONDERFUL_WATERFALL',
+            'SOUTHEAST': 'VILLAINOUS_VALLEY',
+            'WEST': 'FIRE_FOREST'
+        }
+    }
 }
 
 # Other Variables
@@ -114,6 +161,7 @@ playing = True
 # Controller
 while playing:
     print(current_node["NAME"])
+    print(current_node['DESCRIPTION'])
     command = input(">_")
     if command.lower() in ["q", "quit", "exit"]:
         playing = False
