@@ -24,7 +24,7 @@ world_map = {
         'NAME': "The Poisonous Pond",
         'DESCRIPTION': "It is really nasty in here. It's humid, hot, and it smells terrible. You watch a bird drink out"
                        "the water and die instantly. You look to your right and stuck on a tree you see a note that"
-                       "says, 'You chose to continue. '",
+                       "says, 'There is two ways you could go but which one do you chose?'",
         'PATHS': {
             'SOUTH': "FIRE_FOREST",
             'EAST': "CREEPY_CAVE"
@@ -34,7 +34,8 @@ world_map = {
         'NAME': "The Fire Forest",
         'DESCRIPTION': "You arrive at the forest. You soon realize why it is called the Fire Forest. There's these"
                        "bear-looking animals that shoot fire out there mouth. You look around and you find another note"
-                       "written on a rock that says, '",
+                       "written on a rock that says, 'This forest is dangerous, there is items, but there is items you"
+                       "could get to make the rest of the trip easier'.",
         'PATHS': {
             'NORTH': "POISONOUS_POND",
             'EAST': "PAIN_PLATEAU"
@@ -44,7 +45,8 @@ world_map = {
         'NAME': "The Disturbing Cave",
         'DESCRIPTION': "This cave is big and really dark. There's animals crawling on the walls and there is liquids"
                        "dripping from the ceiling. On your left you see a big rat with a note on its back. You fight "
-                       "the rat for the note until you finally get it. The note says, ''",
+                       "the rat for the note until you finally get it. The note says, 'You chose this cave. Now where"
+                       "do you go?'. ",
         'PATHS': {
             'NORTHEAST': "ROCKY_MOUNTAIN",
             'SOUTHWEST': "WINNIE'S_TREEHOUSE",
@@ -55,7 +57,8 @@ world_map = {
         'NAME': "The Lovely Lake",
         'DESCRIPTION': "The name was definitely a lie. The lake is green and it has a terrible smell coming from it."
                        "All the animals are at least five feet from it. To the distance you see a little boat with a "
-                       "box. You find a note that says, '",
+                       "box. You find a note that says, 'The name of this lake really shows how it truly is. Where do"
+                       "you go from here?'.",
         'PATHS': {
             'NORTH': "ROCKY_MOUNTAIN",
             'SOUTH': "RAINY_RIVER",
@@ -65,7 +68,8 @@ world_map = {
     'ROCKY_MOUNTAIN': {
         'NAME': "The Rocky Mountain",
         'DESCRIPTION': "At the top of the mountain you see a flag. It takes you a long time to climb the small little "
-                       "mountain and you finally reach the top. At the top there's a flag with a note. The note says '",
+                       "mountain and you finally reach the top. At the top there's a flag with a note. The note says '"
+                       "It took you a long time to get here, but the rest of the trip is going to take even longer'. ",
         'PATHS': {
             'SOUTH': 'RAINY_RIVER',
             'SOUTHWEST': 'DISTURBING_CAVE'
@@ -73,8 +77,10 @@ world_map = {
     },
     'RAINY_RIVER': {
         'NAME': "The Rainy River",
-        'DESCRIPTION': "Before you are even able to see the river, it starts pouring. Once you see the river, you see"
-                       "an animal carrying a stick with a note on it. You read it and it says, '",
+        'DESCRIPTION': "Before you are even able to see the river, it starts pouring. Once you see the river, you see "
+                       "an animal carrying a stick with a note on it. You snatch it and it starts attacking you, but"
+                       "you hit it with the stick. The note says 'The rain got you really tired didn't it? You could"
+                       "sleep here if you want, but don't recommend it.'",
         'PATHS': {
             'NORTH': 'LOVELY_LAKE'
         }
@@ -82,7 +88,8 @@ world_map = {
     'BEAUTY_BEACH': {
         'NAME': "Beauty Beach",
         'DESCRIPTION': "Just like you expected, the name was a lie. The beach is full of trash and dead fish on the"
-                       "sand. On one of the dead turtles, you see a note. The note says, ",
+                       "sand. On one of the dead turtles, you see a note. The note says, 'This beach is beautiful. The"
+                       "trash everywhere makes it look even better. Where do you want to go?'",
         'PATHS': {
             'NORTHWEST': "WINNIE'S_TREEHOUSE",
             'SOUTHEAST': "SLIPPERY_STREET"
@@ -92,7 +99,7 @@ world_map = {
         'NAME': "The Slippery Street",
         'DESCRIPTION': "The street is very slippery. On the other side of the street you see a note on a traffic cone."
                        "It takes you forever to arrive to the other side because of how many times you fell, but you "
-                       "read the note and it says, '",
+                       "read the note and it says, 'It was super slippery wasn't it? Where do you go here from now?'",
         'PATHS': {
             'NORTHWEST': "BEAUTY_BEACH",
             'SOUTHWEST': 'ABANDONED_PARK'
@@ -102,7 +109,7 @@ world_map = {
         'NAME': "The Abandoned Park",
         'DESCRIPTIONS': "There's empty rides and broken cotton candy machines. There's a lot of clown statues, you "
                         "can't tell if they're fake or real. You see one running in the distance and you panick, but "
-                        "you realise he is carrying a note. ",
+                        "you realise he is carrying a note. The note says, ''",
         'PATHS': {
             'SOUTHWEST': 'VIGOROUS_VOLCANO',
             'NORTHEAST': 'SLIPPERY_STREET'
@@ -132,7 +139,8 @@ world_map = {
         'NAME': 'The Wonderful Waterfall',
         'DESCRIPTION': "The waterfall was beautiful. It was fresh and it was right what you needed to relax. You start"
                        "picking rocks to see if you could find any note. Finally under one rock, you find something "
-                       "that might help you find Winnie. It is an empty honey bowl, with a note written at the bottom.",
+                       "that might help you find Winnie. It is an empty honey bowl, with a note written at the bottom. "
+                       "The note says ",
         'PATHS': {
             'EAST': 'VILLAINOUS_VALLEY',
             'SOUTHEAST': 'VIGOROUS_VOLCANO',
