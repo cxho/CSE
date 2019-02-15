@@ -1,9 +1,10 @@
 world_map = {
     "WINNIE'S_TREEHOUSE": {
         'NAME': "Winnie's Treehouse",
-        'DESCRIPTION': "This is Winnie's Treehouse. You look around to see if you could find any clues on what could've"
+        'DESCRIPTION': "This is Winnie's Treehouse. You arrived at the place after Tiger told you that he has gone"
+                       " missing. You look around to see if you could find any clues on what could've"
                        "taken Winnie. You find a note that says, 'Both don't have very pleasing names, but both are "
-                       "the same. Which one do you go to?'",
+                       "the same. Which one do you go to? Remember you will have to come back here after your trip.'",
         'PATHS': {
             'NORTHEAST': "DISTURBING_CAVE",
             'NORTHWEST': "CREEPY_CAVE"
@@ -80,7 +81,7 @@ world_map = {
         'DESCRIPTION': "Before you are even able to see the river, it starts pouring. Once you see the river, you see "
                        "an animal carrying a stick with a note on it. You snatch it and it starts attacking you, but"
                        "you hit it with the stick. The note says 'The rain got you really tired didn't it? You could"
-                       "sleep here if you want, but don't recommend it.'",
+                       "sleep here if you want, but  I don't recommend it.'",
         'PATHS': {
             'NORTH': 'LOVELY_LAKE'
         }
@@ -108,8 +109,9 @@ world_map = {
     'ABANDONED_PARK': {
         'NAME': "The Abandoned Park",
         'DESCRIPTIONS': "There's empty rides and broken cotton candy machines. There's a lot of clown statues, you "
-                        "can't tell if they're fake or real. You see one running in the distance and you panick, but "
-                        "you realise he is carrying a note. The note says, ''",
+                        "can't tell if they're fake or real. You see one running in the distance and you panic, but "
+                        "you realise he is carrying a note, so you start chasing him. Once you finally catch up,"
+                        "you jump him and get the note. The note says, 'Be careful of where you go from here.'",
         'PATHS': {
             'SOUTHWEST': 'VIGOROUS_VOLCANO',
             'NORTHEAST': 'SLIPPERY_STREET'
@@ -118,7 +120,8 @@ world_map = {
     'VIGOROUS_VOLCANO': {
         'NAME': 'The Vigorous Volcano',
         'DESCRIPTIONS': "The volcano is big and steam is coming out from the top. At the top of the volcano there is a"
-                        "surfboard with a paper. You walk on to the top and read the note, which says, ''",
+                        "surfboard with a paper. You walk on to the top and read the note, which says, 'How are you"
+                        "going to get down.'",
         'PATHS': {
             'NORTHEAST': 'ABANDONED_PARK',
             'EAST': 'VILLAINOUS_VALLEY',
@@ -129,7 +132,7 @@ world_map = {
         'NAME': 'The Villainous Valley',
         'DESCRIPTIONS': "It is really hot and you feel like you are about to faint. You reach into your backpack to"
                         "get water. As you reach into your backpack, you see a small lizard following you. It appears"
-                        "to have a note. You read the note and it says, '",
+                        "to have a note. You read the note and it says, 'How was the last location?'",
         'PATHS': {
             'WEST': 'VIGOROUS_VOLCANO',
             'NORTHWEST': 'PAIN_PLATEAU'
@@ -140,7 +143,7 @@ world_map = {
         'DESCRIPTION': "The waterfall was beautiful. It was fresh and it was right what you needed to relax. You start"
                        "picking rocks to see if you could find any note. Finally under one rock, you find something "
                        "that might help you find Winnie. It is an empty honey bowl, with a note written at the bottom. "
-                       "The note says ",
+                       "The note says 'Where did he go? Where are you going to go?'",
         'PATHS': {
             'EAST': 'VILLAINOUS_VALLEY',
             'SOUTHEAST': 'VIGOROUS_VOLCANO',
