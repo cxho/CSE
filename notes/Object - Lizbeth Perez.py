@@ -1,10 +1,11 @@
 class CellPhone(object):
-    def __init__(self, model, color, battery=100, broken=False):
+    def __init__(self, model, color, battery=100, broken=False, signal=True):
         self.model = model
         self.color = color  # 7 colors of rainbow
         self.battery = battery
         self.duration_of_battery = 2  # hours
         self.broken = broken
+        self.signal = signal
 
     def turn_on(self):
         if self.battery > 0 < 25:
@@ -20,7 +21,10 @@ class CellPhone(object):
             self.duration_of_battery = 2
             print("You have two more hours of charge. ")
 
+    def call(self):
+        if
 
-my_cell_phone = CellPhone(8, 5, 0, True)
+
+my_cell_phone = CellPhone('Iphone X', 'Blue', 0, True)
 
 print(my_cell_phone.turn_on())
