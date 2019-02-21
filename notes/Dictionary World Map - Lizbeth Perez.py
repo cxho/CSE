@@ -1,5 +1,5 @@
 world_map = {
-    "WINNIE'S_TREEHOUSE": {
+    "WINNIES_TREEHOUSE": {
         'NAME': "Winnie's Treehouse",
         'DESCRIPTION': "This is Winnie's Treehouse. You arrived at the place after Tiger told you that he has gone"
                        " missing. You look around to see if you could find any clues on what could've"
@@ -18,7 +18,7 @@ world_map = {
                        "could go back, or you could continue. You chose?'",
         'PATHS': {
             'WEST': "POISONOUS_POND",
-            'SOUTHEAST': "WINNIE'S_TREEHOUSE"
+            'SOUTHEAST': "WINNIES_TREEHOUSE"
          }
     },
     'POISONOUS_POND': {
@@ -50,7 +50,7 @@ world_map = {
                        "do you go?'. ",
         'PATHS': {
             'NORTHEAST': "ROCKY_MOUNTAIN",
-            'SOUTHWEST': "WINNIE'S_TREEHOUSE",
+            'SOUTHWEST': "WINNIES_TREEHOUSE",
             'EAST': "LOVELY_LAKE"
         }
     },
@@ -92,7 +92,7 @@ world_map = {
                        "sand. On one of the dead turtles, you see a note. The note says, 'This beach is beautiful. The"
                        "trash everywhere makes it look even better. Where do you want to go?'",
         'PATHS': {
-            'NORTHWEST': "WINNIE'S_TREEHOUSE",
+            'NORTHWEST': "WINNIES_TREEHOUSE",
             'SOUTHEAST': "SLIPPERY_STREET"
         }
     },
@@ -165,7 +165,7 @@ world_map = {
 }
 
 # Other Variables
-current_node = world_map["WINNIE'S_TREEHOUSE"]
+current_node = world_map["WINNIES_TREEHOUSE"]
 directions = ["NORTH", "SOUTH", "EAST", "WEST", "UP", "DOWN", "NORTHEAST", "SOUTHEAST", "NORTHWEST", "SOUTHWEST"]
 playing = True
 

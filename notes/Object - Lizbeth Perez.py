@@ -22,9 +22,15 @@ class CellPhone(object):
             print("You have two more hours of charge. ")
 
     def call(self):
-        if
+        if self.battery > 0:
+            if self.signal:
+                print("You are now calling someone")
+            if self.signal == False:
+                print("You don't have signal")
+        if self.battery <= 0:
+            print("Your phone is dead. ]")
 
-
-my_cell_phone = CellPhone('Iphone X', 'Blue', 0, True)
+my_cell_phone = CellPhone('Iphone X', 'Blue', 0, True, False)
 
 print(my_cell_phone.turn_on())
+print(my_cell_phone.call())
