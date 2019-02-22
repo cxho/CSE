@@ -31,7 +31,7 @@ class CellPhone(object):
             print("Your phone is dead.")
 
 
-my_cell_phone = CellPhone('Iphone X', 'Blue', 75, True, False)
+my_cell_phone = CellPhone('Iphone X', 'Blue', 73, True, False)
 
 print(my_cell_phone.turn_on())
 print(my_cell_phone.call())
