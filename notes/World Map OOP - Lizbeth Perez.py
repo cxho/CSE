@@ -12,6 +12,7 @@ class Room(object):
         self.northwest = northwest
         self.description = description
 
+
 '''
 R19A = Room("R19A")
 parking_lot = Room('The Parking Lot', None, R19A)
@@ -20,10 +21,10 @@ R19A.north = parking_lot
 '''
 
 WINNIES_TREEHOUSE = Room("Winnie's Treehouse", None, None, None, None, None, None, None, None,
-                        "This is Winnie's Treehouse. You arrived at the place after Tiger told you that he has gone"
-                       " missing. You look around to see if you could find any clues on what could've"
-                       "taken Winnie. You find a note that says, 'Both don't have very pleasing names, but both are "
-                       "the same. Which one do you go to? Remember you will have to come back here after your trip.'")
+                         "This is Winnie's Treehouse. You arrived at the place after Tiger told you that he has gone"
+                         "missing. You look around to see if you could find any clues on what could've"
+                         "taken Winnie. You find a note that says, 'Both don't have very pleasing names, but both are "
+                         "the same. Which one do you go to? Remember you will have to come back here after your trip.'")
 CREEPY_CAVE = Room("The Creepy Cave", None, None, None, None, WINNIES_TREEHOUSE, None, None,
                    "The cave is extremely dark. There's bats flying everywhere, One of the bats lands on your head"
                    "so you hit it with your shoes. When it falls a note falls along with it. The note says, 'You "
@@ -74,15 +75,15 @@ VIGOROUS_VOLCANO = Room("The Vigorous Volcano", None, None, None, None, None, No
                         "surfboard with a paper. You walk on to the top and read the note, which says, 'How are you"
                         "going to get down.'")
 VILLAINOUS_VALLEY = Room("The Villainous Valley", None, None, None, VIGOROUS_VOLCANO, None, None, None, None,
-                        "It is really hot and you feel like you are about to faint. You reach into your backpack to"
-                        "get water. As you reach into your backpack, you see a small lizard following you. It appears"
-                        "to have a note. You read the note and it says, 'How was the last location?'")
+                         "It is really hot and you feel like you are about to faint. You reach into your backpack to"
+                         "get water. As you reach into your backpack, you see a small lizard following you. It appears"
+                         "to have a note. You read the note and it says, 'How was the last location?'")
 WONDERFUL_WATERFALL = Room("The Wonderful Waterfall", None, None, VILLAINOUS_VALLEY, None, VIGOROUS_VOLCANO, None, None,
                            None,
-                        "The waterfall was beautiful. It was fresh and it was right what you needed to relax. You start"
-                        "picking rocks to see if you could find any note. Finally under one rock, you find something "
-                        "that might help you find Winnie. It is an empty honey bowl, with a note written at the bottom."
-                        "The note says 'Where did he go? Where are you going to go?'")
+                           "The waterfall was beautiful. It was fresh and it was right what you needed to relax. You"
+                           " start picking rocks to see if you could find any note. Finally under one rock, you find"
+                           "something that might help you find Winnie. It is an empty honey bowl, with a note written"
+                           " at the bottom. The note says 'Where did he go? Where are you going to go?'")
 PAIN_PLATEAU = Room("The Pain Plateau", None, None, None, FIRE_FOREST, VILLAINOUS_VALLEY, WONDERFUL_WATERFALL, None,
                     None,
                     "The Pain Plateau was definitely really painful to climb. When you reach the top there is 2 big"

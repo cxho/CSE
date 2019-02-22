@@ -8,13 +8,13 @@ class CellPhone(object):
         self.signal = signal
 
     def turn_on(self):
-        if self.battery > 0 < 25:
+        if self.battery < 25 > 0:
             self.duration_of_battery = .5
             print("You have 30 minutes of charge. ")
         if self.battery == 0:
             self.duration_of_battery = 0
-            print("Your phone is dead")
-        if self.battery > 25 < 50:
+            print("Your phone is dead.")
+        if self.battery < 50 > 25:
             self.duration_of_battery = 1
             print("You have one more hour of charge. ")
         if self.battery >= 50:
@@ -25,12 +25,13 @@ class CellPhone(object):
         if self.battery > 0:
             if self.signal:
                 print("You are now calling someone")
-            if self.signal == False:
+            else:
                 print("You don't have signal")
         if self.battery <= 0:
-            print("Your phone is dead. ]")
+            print("Your phone is dead.")
 
-my_cell_phone = CellPhone('Iphone X', 'Blue', 0, True, False)
+
+my_cell_phone = CellPhone('Iphone X', 'Blue', 75, True, False)
 
 print(my_cell_phone.turn_on())
 print(my_cell_phone.call())

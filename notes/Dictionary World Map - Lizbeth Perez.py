@@ -171,7 +171,8 @@ playing = True
 
 # Controller
 while playing:
-    print(current_node["NAME"]['DESCRIPTION'])
+    print(current_node["NAME"])
+    print(current_node['DESCRIPTION'])
     command = input(">_")
     if command.lower() in ["q", "quit", "exit"]:
         playing = False
