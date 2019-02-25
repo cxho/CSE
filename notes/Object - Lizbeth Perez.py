@@ -32,6 +32,7 @@ class CellPhone(object):
 
 
 my_cell_phone = CellPhone('Iphone X', 'Blue', 73, True, False)
+your_cell_phone = CellPhone('Iphone 7', 'Gold', 28, True, False)
 
 print(my_cell_phone.turn_on())
 print(my_cell_phone.call())
