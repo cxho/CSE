@@ -1,6 +1,6 @@
 class Room(object):
     def __init__(self, name, north=None, south=None, east=None, west=None, southeast=None, southwest=None,
-                 northeast=None, northwest=None, description=""):
+                 northeast=None, northwest=None, description="", character=None):
         self.name = name
         self.north = north
         self.south = south
@@ -11,6 +11,7 @@ class Room(object):
         self.northeast = northeast
         self.northwest = northwest
         self.description = description
+        self.character = character
 
 
 class Player(object):
@@ -38,8 +39,9 @@ R19A.north = parking_lot
 WINNIES_TREEHOUSE = Room("Winnie's Treehouse", None, None, None, None, None, None, None, None,
                          "This is Winnie's Treehouse. You arrived at the place after Tiger told you that he has gone"
                          "missing. You look around to see if you could find any clues on what could've"
-                         "taken Winnie. You find a note that says, 'Both don't have very pleasing names, but both are"
-                         "the same. Which one do you go to? Remember you will have to come back here after your trip.'")
+                         "taken Winnie. Tiger tells you he has been missing for 2 days now. You find a note that says, "
+                         "'Both don't have very pleasing names, but both are the same. Which one do you go to? Remember"
+                         "you will have to come back here after your trip.'", "Tiger")
 CREEPY_CAVE = Room("The Creepy Cave", None, None, None, None, WINNIES_TREEHOUSE, None, None,
                    "The cave is extremely dark. There's bats flying everywhere, One of the bats lands on your head"
                    "so you hit it with your shoes. When it falls a note falls along with it. The note says, 'You"
