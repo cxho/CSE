@@ -17,7 +17,7 @@
     <SUITE FILE_PATH="coverage/notes$Basic_Python_Notes.coverage" NAME="Basic Python Notes Coverage Results" MODIFIED="1544113867813" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/notes$Lizbeth_Perez___Mad_Lib.coverage" NAME="Lizbeth Perez - Mad Lib Coverage Results" MODIFIED="1540912086778" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/notes$Object___Lizbeth_Perez.coverage" NAME="Object - Lizbeth Perez Coverage Results" MODIFIED="1551197416970" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/notes$World_Map_OOP___Lizbeth_Perez.coverage" NAME="World Map OOP - Lizbeth Perez Coverage Results" MODIFIED="1551284667797" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/notes$World_Map_OOP___Lizbeth_Perez.coverage" NAME="World Map OOP - Lizbeth Perez Coverage Results" MODIFIED="1551285499931" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/notes$Lizbeth_Perez___Challenges.coverage" NAME="Lizbeth Perez - Challenges Coverage Results" MODIFIED="1544458747362" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/notes$Object_Notes___Lizbeth_Perez.coverage" NAME="Object Notes - Lizbeth Perez Coverage Results" MODIFIED="1550159963004" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/notes$Dictionary_Notes___Lizbeth_Perez.coverage" NAME="Dictionary Notes - Lizbeth Perez Coverage Results" MODIFIED="1548951877624" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -46,8 +46,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/World Map OOP - Lizbeth Perez.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1201">
-              <caret line="47" column="71" lean-forward="true" selection-start-line="47" selection-start-column="71" selection-end-line="47" selection-end-column="71" />
+            <state relative-caret-position="320">
+              <caret line="83" column="117" lean-forward="true" selection-start-line="83" selection-start-column="117" selection-end-line="83" selection-end-column="117" />
             </state>
           </provider>
         </entry>
@@ -278,12 +278,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1540222921457</updated>
-      <workItem from="1551284114885" duration="1102000" />
+      <workItem from="1551284114885" duration="1524000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1102000" />
+    <option name="totallyTimeSpent" value="1524000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -414,8 +414,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/World Map OOP - Lizbeth Perez.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1201">
-          <caret line="47" column="71" lean-forward="true" selection-start-line="47" selection-start-column="71" selection-end-line="47" selection-end-column="71" />
+        <state relative-caret-position="320">
+          <caret line="83" column="117" lean-forward="true" selection-start-line="83" selection-start-column="117" selection-end-line="83" selection-end-column="117" />
         </state>
       </provider>
     </entry>
