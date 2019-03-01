@@ -43,12 +43,12 @@ class KeylessCar(Car):
         print("You push the button and the car turns on.")
 
 
-julianna_car = Corvette()
+julianna_car = Corvette()  # This is an instance
 julianna_car.start_engine()
 julianna_car.move_forward()
 print()
 
-adam_car = KeylessCar("Adam's ride", "Diesel", "Toaster")
+adam_car = KeylessCar("Adam's ride", "Diesel", "Toaster")  # This is an instance
 adam_car.start_engine()
 adam_car.move_forward()
 adam_car.turn_off()
