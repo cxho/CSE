@@ -157,6 +157,18 @@ world_map = {
                        "Both of the notes are different one talks about a wonderful place and they other one talks "
                        "about the worst place ever imaginable. You don't know which way to go. ",
         'PATHS': {
+
+
+
+
+
+
+
+
+
+
+
+
             'SOUTHWEST': 'WONDERFUL_WATERFALL',
             'SOUTHEAST': 'VILLAINOUS_VALLEY',
             'WEST': 'FIRE_FOREST'
