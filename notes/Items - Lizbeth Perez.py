@@ -3,23 +3,31 @@ class Item(object):
         self.name = name
         self.packaging = packaging
         self.labels = labels
-        self.edible = True
         self.protection = protection
 
     def pick_up(self):
-        print("You picked up a type of food.")
+        self.packaging = "In a backpack"
+        print("You picked up an item.")
 
 
 class BackpackStuff(Item):
     def __init__(self, name, packaging, labels, protection):
         super(BackpackStuff, self).__init__(name, packaging, labels, protection)
 
+    def take_out(self):
+        self.packaging = "Outside a backpack"
+        print("You take an item out of your backpack.")
+
+    def put_in(self):
+        self.packaging = "In a backpack"
+        print("You put an item in your backpack")
+
 
 class Drinks(BackpackStuff):
     def __init__(self, name, packaging, labels, protection, temperature):
         super(Drinks, self).__init__(name, packaging, labels, protection)
         self.temperature = temperature
-        self.quantity = 100
+        self.quantity = 25
 
     def drink_liquid(self):
         self.quantity -= 1
@@ -36,19 +44,28 @@ class HotDrinks(Drinks):
         self.temperature = 75
 
 
-class Coffee(HotDrinks):
-    def __init__(self):
-        super(Coffee, self).__init__("Coffee", "Wrapper", "Ingredients", 20, 75)
-
-
 class Tea(HotDrinks):
     def __init__(self):
         super(Tea, self).__init__("Tea", "Tea bag", "How to prepare it", 20, 75)
 
 
-class HotChocolate(HotDrinks):
+class Armor(BackpackStuff):
+    def __init__(self, name, packaging, labels, protection):
+        super(Armor, self).__init__(name, packaging, labels, protection)
+
+    def wear_it(self):
+        self.protection -= 5
+        print("You are now wearing the item.")
+
+
+class Helmet(BackpackStuff):
     def __init__(self):
-        super(HotChocolate, self).__init__("Hot Chocolate", "none", "none", 20, 75)
+        super(Helmet, self).__init__("Helmet", "none", "Dora the Destroyer", 78)
+
+
+class ChestPlate(Armor):
+    def __init__(self):
+        super(ChestPlate, self).__init__("A Protective Chest Plate", "none", "Dora the Destroyer", 98)
 
 
 class Weapons(BackpackStuff):
@@ -89,8 +106,10 @@ class Screwdriver(Weapons):
 class HealingStuff(BackpackStuff):
     def __init__(self, name, packaging, labels, protection, healing):
         super(HealingStuff, self).__init__(name, packaging, labels, protection)
+        self.healing = 0
 
     def use_stuff(self):
+        self.protection -= 1
         print("You have been healed")
 
 
@@ -116,12 +135,12 @@ class Shield(RandomItems):
 
 class Map(RandomItems):
     def __init__(self):
-        super(Map, self).__init__("The Map", "none", "drawing of Ashdown Forest", 0)
+        super(Map, self).__init__("The Map", "none", "Ashdown Map", 0)
 
 
 class PlasticBag(RandomItems):
     def __init__(self):
-        super(PlasticBag, self).__init__("A Plastic Bag")
+        super(PlasticBag, self).__init__("A Plastic Bag", "none", "Evidence", 0)
 
 
 class ItemsFound(Item):
@@ -134,4 +153,6 @@ class Key(ItemsFound):
         super(Key, self).__init__("The Magical Key", "none", "Opens secret room", 0)
 
 
-class
+class PuddleOfHoney(ItemsFound):
+    def __init__(self):
+        super(PuddleOfHoney, self).__init__("Puddle of honey", "none", "none", 0)
