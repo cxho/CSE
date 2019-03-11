@@ -106,7 +106,7 @@ class Screwdriver(Weapons):
 class HealingStuff(BackpackStuff):
     def __init__(self, name, packaging, labels, protection, healing):
         super(HealingStuff, self).__init__(name, packaging, labels, protection)
-        self.healing = 0
+        self.healing_amt = healing
 
     def use_stuff(self):
         self.protection -= 1
@@ -156,3 +156,21 @@ class Key(ItemsFound):
 class PuddleOfHoney(ItemsFound):
     def __init__(self):
         super(PuddleOfHoney, self).__init__("Puddle of honey", "none", "none", 0)
+
+
+first_key = Key()
+yummy_tea = Tea()
+protective_helmet = Helmet()
+protective_chest_plate = ChestPlate()
+a_sword = Sword()
+toy_baseball_bat = ToyBaseballBat()
+only_bbgun = BBGun()
+pointy_knife = Knife()
+backup_ax = BackupAx()
+a_screwdriver = Screwdriver()
+healing_medkit = MedKit()
+holy_bible = Bible()
+only_shield = Shield()
+ashdown_forest_map = Map()
+a_plastic_bag = PlasticBag()
+winnies_puddle_of_honey = PuddleOfHoney()
