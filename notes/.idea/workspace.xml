@@ -48,17 +48,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Items - Lizbeth Perez.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="410">
-              <caret line="173" column="26" lean-forward="true" selection-start-line="173" selection-start-column="26" selection-end-line="173" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Inheritance -  Lizbeth Perez.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" selection-start-line="2" selection-end-line="2" />
+            <state relative-caret-position="220">
+              <caret line="135" column="114" lean-forward="true" selection-start-line="135" selection-start-column="114" selection-end-line="135" selection-end-column="114" />
             </state>
           </provider>
         </entry>
@@ -289,12 +280,13 @@
       <workItem from="1551887646290" duration="2904000" />
       <workItem from="1551974046242" duration="2906000" />
       <workItem from="1552060553799" duration="2798000" />
-      <workItem from="1552316162207" duration="2492000" />
+      <workItem from="1552316162207" duration="2814000" />
+      <workItem from="1552402445229" duration="2539000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20784000" />
+    <option name="totallyTimeSpent" value="23645000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -309,7 +301,7 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24659607" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.24659607" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" weight="0.32978722" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -471,8 +463,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Items - Lizbeth Perez.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="173" column="26" lean-forward="true" selection-start-line="173" selection-start-column="26" selection-end-line="173" selection-end-column="26" />
+        <state relative-caret-position="220">
+          <caret line="135" column="114" lean-forward="true" selection-start-line="135" selection-start-column="114" selection-end-line="135" selection-end-column="114" />
         </state>
       </provider>
     </entry>
