@@ -14,6 +14,102 @@ class Room(object):
         self.character = character
 
 
+class Item(object):
+    def __init__(self, name, packaging, labels, protection, description):
+        self.name = name
+        self.packaging = packaging
+        self.labels = labels
+        self.protection = protection
+        self.description = description
+
+
+class BackpackStuff(Item):
+    def __init__(self, name, packaging, labels, protection, description):
+        super(BackpackStuff, self).__init__(name, packaging, labels, protection, description)
+
+    def take_out(self):
+        self.packaging = "Outside a backpack"
+        print("You take an item out of your backpack.")
+
+    def put_in(self):
+        self.packaging = "In a backpack"
+        print("You put an item in your backpack")
+
+
+class Armor(BackpackStuff):
+    def __init__(self, name, packaging, labels, protection, description):
+        super(Armor, self).__init__(name, packaging, labels, protection, description)
+
+    def wear_it(self):
+        self.protection -= 5
+        print("You are now wearing the item.")
+
+
+class Helmet(BackpackStuff):
+    def __init__(self):
+        super(Helmet, self).__init__("Helmet", "none", "Dora the Destroyer", 78, "Helps protect the head")
+
+
+class ChestPlate(Armor):
+    def __init__(self):
+        super(ChestPlate, self).__init__("A Protective Chest Plate", "none", "Dora the Destroyer", 98, "Protects the "
+                                         "chest completely")
+
+
+class Weapons(BackpackStuff):
+    def __init__(self, name, packaging, labels, protection, description):
+        super(Weapons, self).__init__(name, packaging, labels, protection, description)
+
+
+class Sword(Weapons):
+    def __init__(self):
+        super(Weapons, self).__init__("Magical Honey Sword", "none", "none", 80, "Could cut things in half "
+                                      "(Even humans)")
+
+
+class ToyBaseballBat(Weapons):
+    def __init__(self):
+        super(Weapons, self).__init__("Super Dangerous Bat", "none", "none", 67, "Could knock you out with one hit")
+
+
+class BBGun(Weapons):
+    def __init__(self):
+        super(Weapons, self).__init__("Scary BB Gun", "none", "none", 56, "Could make you go bye bye")
+
+
+class Knife(Weapons):
+    def __init__(self):
+        super(Weapons, self).__init__("Traumatizing Knife", "none", "none", 46, "stabs you until you're dead")
+
+
+class BackupAx(Weapons):
+    def __init__(self):
+        super(Weapons, self).__init__("Backup Ax", "none", "none", 70, "Could cut you in half")
+
+
+class Screwdriver(Weapons):
+    def __init__(self):
+        super(Screwdriver, self).__init__("Screwdriver", "none", "none", 30, "Could poke you in the eye")
+
+
+class Character(object):
+    def __init__(self, name, health, weapons, armor):
+        self.name = name
+        self.health = health
+        self.weapons = weapons
+        self.armor = armor
+
+    def take_damage(self, damage):
+        print("%s has %d health left" % (self.name, self.health))
+        self.health -= damage
+        if self.health < 0:
+            self.health = 0
+
+    def attack(self, target):
+        print("%s attacks %s for %d damage" % (self.name, target.name, self.weapons.damage))
+        target.take_damage(self.weapons.damage)
+
+
 class Player(object):
     def __init__(self, starting_room):
         self.health = 100
@@ -127,6 +223,13 @@ VILLAINOUS_VALLEY.northwest = PAIN_PLATEAU
 WONDERFUL_WATERFALL.northeast = PAIN_PLATEAU
 
 player = Player(WINNIES_TREEHOUSE)
+
+
+sword = Weapons("Sword", "none", "none", 5, "A sword")
+sword2 = Weapons("Orc Sword", "none", "none", 5, "Another Sword")
+
+Dora = Character("Dora", 100, sword2, None)
+Evil_Elmo = Character("Possesed Elmo", 100, sword, None)
 
 playing = True
 directions = ['north', 'south', 'east', 'west', 'northeast', 'southeast', 'northwest', 'southwest']
