@@ -133,13 +133,15 @@ R19A.north = parking_lot
 """
 
 WINNIES_TREEHOUSE = Room("Winnie's Treehouse", None, None, None, None, None, None, None, None,
-                         "This is Winnie's Treehouse. You arrived at the place after Tiger told you that he has gone"
-                         "missing. You look around to see if you could find any clues on what could've"
+                         "This is Winnie's Treehouse. You arrived at the place after Tiger told you that he has gone "
+                         "missing. You look around to see if you could find any clues on what could've "
                          "taken Winnie. Tiger tells you he has been missing for 2 days now. You find a note that says,"
                          "'Both don't have very pleasing names, but both are the same. Which one do you go to? Remember"
                          " you will have to come back here after your trip.'", "Tiger")
+SECRET_ROOM = Room("Winnie's Secret Room", WINNIES_TREEHOUSE, None, None, None, None, None, None, None, "This is "
+                   "This is Winnie's Secret Room. You look around to see if he is in here somewhere. He isn't.")
 CREEPY_CAVE = Room("The Creepy Cave", None, None, None, None, WINNIES_TREEHOUSE, None, None,
-                   "The cave is extremely dark. There's bats flying everywhere, One of the bats lands on your head,"
+                   "The cave is extremely dark. There's bats flying everywhere, One of the bats lands on your head, "
                    "so you hit it with your shoes. When it falls a note falls along with it. The note says, 'You "
                    "could go back, or you could continue. You chose?'")
 POISONOUS_POND = Room("The Poisonous Pond", None, None, CREEPY_CAVE, None, None, None, None, None,
@@ -206,6 +208,7 @@ PAIN_PLATEAU = Room("The Pain Plateau", None, None, None, FIRE_FOREST, VILLAINOU
 
 WINNIES_TREEHOUSE.northwest = DISTURBING_CAVE
 WINNIES_TREEHOUSE.northeast = CREEPY_CAVE
+WINNIES_TREEHOUSE.south = SECRET_ROOM
 CREEPY_CAVE.west = POISONOUS_POND
 POISONOUS_POND.south = FIRE_FOREST
 FIRE_FOREST.east = PAIN_PLATEAU
@@ -239,14 +242,17 @@ while playing:
     print(player.current_location.name)
     print(player.current_location.description)
     command = input(">_")
-    if command.lower() in ["q", "quit", "exit"]:
+    if command.lower() in ['q', 'quit', 'exit']:
         playing = False
     elif command.lower() in directions:
         try:
-            # command =  'north'
-            room_object = getattr(player.current_location, command)
+            # command = 'north'
+            room_name = getattr(player.current_location, command)
+            room_object = globals()[room_name]
             player.move(room_object)
         except KeyError:
+            print("This key does not exist")
+        except AttributeError:
             print("I can't go that way.")
     else:
-        print("command not recognized")
+        print("Command Not Recognized")
