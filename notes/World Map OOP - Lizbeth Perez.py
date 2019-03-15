@@ -204,7 +204,7 @@ PAIN_PLATEAU = Room("The Pain Plateau", None, None, None, FIRE_FOREST, VILLAINOU
                     "The Pain Plateau was definitely really painful to climb. When you reach the top there is 2 big "
                     "rocks. They are completely different, but they have one thing in common: they both have a note. "
                     "Both of the notes are different one talks about a wonderful place and they other one talks "
-                    "about the worst place ever imaginable. You don't know which way to go.")
+                    "about the worst place ever imaginable. You don't know which way to go.", "Possessed Elmo")
 
 WINNIES_TREEHOUSE.northwest = DISTURBING_CAVE
 WINNIES_TREEHOUSE.northeast = CREEPY_CAVE
@@ -248,8 +248,9 @@ while playing:
         try:
             # command = 'north'
             room_name = getattr(player.current_location, command)
-            room_object = globals()[room_name]
-            player.move(room_object)
+            if room_name is None:
+                raise AttributeError
+            player.move(room_name)
         except KeyError:
             print("This key does not exist")
         except AttributeError:
