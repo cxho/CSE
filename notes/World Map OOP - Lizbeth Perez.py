@@ -22,6 +22,33 @@ class Item(object):
         self.protection = protection
         self.description = description
 
+    def pick_up(self):
+        self.packaging = "In a backpack"
+        print("You picked up an item.")
+
+
+class Character(object):
+    def __init__(self, name, health, weapons, armor):
+        self.name = name
+        self.health = health
+        self.weapons = weapons
+        self.armor = armor
+
+    def take_damage(self, damage):
+        print("%s has %d health left" % (self.name, self.health))
+        self.health -= damage
+        if self.health < 0:
+            self.health = 0
+
+    def attack(self, target):
+        print("%s attacks %s for %d damage" % (self.name, target.name, self.weapons.damage))
+        target.take_damage(self.weapons.damage)
+
+
+class Enemy(Character):
+    def __init__(self, name, health, weapons, armor):
+        super(Enemy, self).__init__(name, health, weapons, armor)
+
 
 class BackpackStuff(Item):
     def __init__(self, name, packaging, labels, protection, description):
@@ -34,6 +61,32 @@ class BackpackStuff(Item):
     def put_in(self):
         self.packaging = "In a backpack"
         print("You put an item in your backpack")
+
+
+class Drinks(BackpackStuff):
+    def __init__(self, name, packaging, labels, protection, temperature, description):
+        super(Drinks, self).__init__(name, packaging, labels, protection, description)
+        self.temperature = temperature
+        self.quantity = 25
+
+    def drink_liquid(self):
+        self.quantity -= 1
+        print("You drank the liquid")
+
+    def throw_liquid(self):
+        self.quantity = 0
+        print("You threw the drink")
+
+
+class HotDrinks(Drinks):
+    def __init__(self, name, packaging, labels, protection, temperature, description):
+        super(HotDrinks, self).__init__(name, packaging, labels, protection, temperature, description)
+        self.temperature = 75
+
+
+class Tea(HotDrinks):
+    def __init__(self):
+        super(Tea, self).__init__("Tea", "Tea bag", "How to prepare it", 20, 75, "Energizing and Calming Tea")
 
 
 class Armor(BackpackStuff):
@@ -92,26 +145,78 @@ class Screwdriver(Weapons):
         super(Screwdriver, self).__init__("Screwdriver", "none", "none", 30, "Could poke you in the eye")
 
 
-class Character(object):
-    def __init__(self, name, health, weapons, armor):
-        self.name = name
-        self.health = health
-        self.weapons = weapons
-        self.armor = armor
+class HealingStuff(BackpackStuff):
+    def __init__(self, name, packaging, labels, protection, healing, description):
+        super(HealingStuff, self).__init__(name, packaging, labels, protection, description)
+        self.healing_amt = healing
 
-    def take_damage(self, damage):
-        print("%s has %d health left" % (self.name, self.health))
-        self.health -= damage
-        if self.health < 0:
-            self.health = 0
+    def use_stuff(self):
+        self.healing_amt += 10
+        print("You have been healed")
 
-    def attack(self, target):
-        print("%s attacks %s for %d damage" % (self.name, target.name, self.weapons.damage))
-        target.take_damage(self.weapons.damage)
+
+class MedKit(HealingStuff):
+    def __init__(self):
+        super(MedKit, self).__init__("Med Kit", "none", "none", 0, 89, "Safety first")
+
+
+class RandomItems(BackpackStuff):
+    def __init__(self, name, packaging, labels, protection, description):
+        super(RandomItems, self).__init__(name, packaging, labels, protection, description)
+
+
+class Bible(RandomItems):
+    def __init__(self):
+        super(Bible, self).__init__("Bible", "none", "none", 56, "You need Jesus")
+
+
+class Shield(RandomItems):
+    def __init__(self):
+        super(Shield, self).__init__("Protective Shield", "none", "none", 95, "Blocks away the haters and the hits :)")
+
+
+class Map(RandomItems):
+    def __init__(self):
+        super(Map, self).__init__("The Map", "none", "Ashdown Map", 0, "Could help you find locations, but not your "
+                                  "will to live :(")
+
+
+class PlasticBag(RandomItems):
+    def __init__(self):
+        super(PlasticBag, self).__init__("A Plastic Bag", "none", "Evidence", 0, "You should know what a platic bag is "
+                                         "used for. If you don't, you're too rich for this game :(")
+
+
+class ItemsFound(Item):
+    def __init__(self, name, packaging, labels, protection, description):
+        super(ItemsFound, self).__init__(name, packaging, labels, protection, description)
+
+
+class Key(ItemsFound):
+    def __init__(self):
+        super(Key, self).__init__("The Magical Key", "none", "Opens secret room", 0, "Opens secret room or you can "
+                                  "stab people")
+
+
+class PuddleOfHoney(ItemsFound):
+    def __init__(self):
+        super(PuddleOfHoney, self).__init__("Puddle of honey", "none", "none", 0, "You could eat it and die from food"
+                                            " poisoning, or use it as evidence.")
+
+
+class EvilElmo(Enemy):
+    def __init__(self):
+        super(EvilElmo, self).__init__("Possesed Elmo", 100, BBGun, "none")
+
+
+class WinnieThePooh(Enemy):
+    def __init__(self):
+        super(WinnieThePooh, self).__init__("Winnie the Pooh", 100, Sword, ChestPlate)
 
 
 class Player(object):
     def __init__(self, starting_room):
+        self.name = "Dora the Detective"
         self.health = 100
         self.current_location = starting_room
         self.damage = 10
@@ -123,6 +228,11 @@ class Player(object):
         :param newlocation: The variable containing a room object
         """
         self.current_location = newlocation
+
+
+class Dora(Player):
+    def __init__(self):
+        super(Dora, self).__init__(WINNIES_TREEHOUSE)
 
 
 """
@@ -188,7 +298,7 @@ ABANDONED_PARK = Room("The Abandoned Park", None, None, None, None, None, None, 
 VIGOROUS_VOLCANO = Room("The Vigorous Volcano", None, None, None, None, None, None, ABANDONED_PARK, None,
                         "The volcano is big and steam is coming out from the top. At the top of the volcano there is a "
                         "surfboard with a paper. You walk on to the top and read the note, which says, 'How are you "
-                        "going to get down.'")
+                        "going to get down.'", WinnieThePooh)
 VILLAINOUS_VALLEY = Room("The Villainous Valley", None, None, None, VIGOROUS_VOLCANO, None, None, None, None,
                          "It is really hot and you feel like you are about to faint. You reach into your backpack to "
                          "get water. As you reach into your backpack, you see a small lizard following you. It appears "
@@ -204,10 +314,10 @@ PAIN_PLATEAU = Room("The Pain Plateau", None, None, None, FIRE_FOREST, VILLAINOU
                     "The Pain Plateau was definitely really painful to climb. When you reach the top there is 2 big "
                     "rocks. They are completely different, but they have one thing in common: they both have a note. "
                     "Both of the notes are different one talks about a wonderful place and they other one talks "
-                    "about the worst place ever imaginable. You don't know which way to go.", "Possessed Elmo")
+                    "about the worst place ever imaginable. You don't know which way to go.", EvilElmo)
 
-WINNIES_TREEHOUSE.northwest = DISTURBING_CAVE
-WINNIES_TREEHOUSE.northeast = CREEPY_CAVE
+WINNIES_TREEHOUSE.northwest = CREEPY_CAVE
+WINNIES_TREEHOUSE.northeast = DISTURBING_CAVE
 WINNIES_TREEHOUSE.south = SECRET_ROOM
 CREEPY_CAVE.west = POISONOUS_POND
 POISONOUS_POND.south = FIRE_FOREST
@@ -231,7 +341,7 @@ player = Player(WINNIES_TREEHOUSE)
 sword = Weapons("Sword", "none", "none", 5, "A sword")
 sword2 = Weapons("Orc Sword", "none", "none", 5, "Another Sword")
 
-Dora = Character("Dora", 100, sword2, None)
+Dora_the_detective = Character("Dora", 100, sword2, None)
 Evil_Elmo = Character("Possesed Elmo", 100, sword, None)
 
 playing = True
