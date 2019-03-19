@@ -1,6 +1,8 @@
 class Room(object):
     def __init__(self, name, north=None, south=None, east=None, west=None, southeast=None, southwest=None,
-                 northeast=None, northwest=None, description="", character=None):
+                 northeast=None, northwest=None, description="", items=None, character=None):
+        if items is None:
+            items = []
         self.name = name
         self.north = north
         self.south = south
@@ -11,6 +13,7 @@ class Room(object):
         self.northeast = northeast
         self.northwest = northwest
         self.description = description
+        self.items = items
         self.character = character
 
 
@@ -204,6 +207,11 @@ class PuddleOfHoney(ItemsFound):
                                             " poisoning, or use it as evidence.")
 
 
+class HoneyBowls(ItemsFound):
+    def __init__(self):
+        super(HoneyBowls, self).__init__("Honey Bowls", "none", "honey", 0, "Winnie really loves his honey. ")
+
+
 class EvilElmo(Enemy):
     def __init__(self):
         super(EvilElmo, self).__init__("Possesed Elmo", 100, BBGun, "none")
@@ -247,9 +255,10 @@ WINNIES_TREEHOUSE = Room("Winnie's Treehouse", None, None, None, None, None, Non
                          "missing. You look around to see if you could find any clues on what could've "
                          "taken Winnie. Tiger tells you he has been missing for 2 days now. You find a note that says,"
                          "'Both don't have very pleasing names, but both are the same. Which one do you go to? Remember"
-                         " you will have to come back here after your trip.'", "Tiger")
+                         " you will have to come back here after your trip.'", Key)
 SECRET_ROOM = Room("Winnie's Secret Room", WINNIES_TREEHOUSE, None, None, None, None, None, None, None, "This is "
-                   "This is Winnie's Secret Room. You look around to see if he is in here somewhere. He isn't.")
+                   "This is Winnie's Secret Room. You look around to see if he is in here somewhere. He isn't.",
+                   HoneyBowls)
 CREEPY_CAVE = Room("The Creepy Cave", None, None, None, None, WINNIES_TREEHOUSE, None, None,
                    "The cave is extremely dark. There's bats flying everywhere, One of the bats lands on your head, "
                    "so you hit it with your shoes. When it falls a note falls along with it. The note says, 'You "
@@ -266,8 +275,9 @@ FIRE_FOREST = Room("The Fire Forest", POISONOUS_POND, None, None, None, None, No
 DISTURBING_CAVE = Room("The Disturbing Cave", None, None, None, None, None, WINNIES_TREEHOUSE, None, None,
                        "This cave is big and really dark. There's animals crawling on the walls and there is liquids "
                        "dripping from the ceiling. On your left you see a big rat with a note on its back. You fight "
-                       "the rat for the note until you finally get it. The note says, 'You chose this cave. Now where "
-                       "do you go?'. ")
+                       "the rat for the note until you finally get it. You find a puddle of honey on the floor. "
+                       "Winnie must've been here. Maybe you should pick up the honey. The note says, 'You chose this "
+                       "cave. Now where ""do you go?'. ", PuddleOfHoney)
 LOVELY_LAKE = Room("The Lovely Lake", None, None, None, DISTURBING_CAVE, None, None, None, None,
                    "The name was definitely a lie. The lake is green and it has a terrible smell coming from it. "
                    "All the animals are at least five feet from it. To the distance you see a little boat with a "
@@ -298,7 +308,7 @@ ABANDONED_PARK = Room("The Abandoned Park", None, None, None, None, None, None, 
 VIGOROUS_VOLCANO = Room("The Vigorous Volcano", None, None, None, None, None, None, ABANDONED_PARK, None,
                         "The volcano is big and steam is coming out from the top. At the top of the volcano there is a "
                         "surfboard with a paper. You walk on to the top and read the note, which says, 'How are you "
-                        "going to get down.'", WinnieThePooh)
+                        "going to get down.'", None, WinnieThePooh)
 VILLAINOUS_VALLEY = Room("The Villainous Valley", None, None, None, VIGOROUS_VOLCANO, None, None, None, None,
                          "It is really hot and you feel like you are about to faint. You reach into your backpack to "
                          "get water. As you reach into your backpack, you see a small lizard following you. It appears "
@@ -314,7 +324,7 @@ PAIN_PLATEAU = Room("The Pain Plateau", None, None, None, FIRE_FOREST, VILLAINOU
                     "The Pain Plateau was definitely really painful to climb. When you reach the top there is 2 big "
                     "rocks. They are completely different, but they have one thing in common: they both have a note. "
                     "Both of the notes are different one talks about a wonderful place and they other one talks "
-                    "about the worst place ever imaginable. You don't know which way to go.", EvilElmo)
+                    "about the worst place ever imaginable. You don't know which way to go.", None, EvilElmo)
 
 WINNIES_TREEHOUSE.northwest = CREEPY_CAVE
 WINNIES_TREEHOUSE.northeast = DISTURBING_CAVE
