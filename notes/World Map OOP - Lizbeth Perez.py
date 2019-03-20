@@ -87,9 +87,9 @@ class HotDrinks(Drinks):
         self.temperature = 75
 
 
-class Tea(HotDrinks):
+class Coffee(HotDrinks):
     def __init__(self):
-        super(Tea, self).__init__("Tea", "Tea bag", "How to prepare it", 20, 75, "Energizing and Calming Tea")
+        super(Coffee, self).__init__("Tea", "Tea bag", "How to prepare it", 20, 75, "Energizing and Calming Tea")
 
 
 class Armor(BackpackStuff):
@@ -209,7 +209,7 @@ class PuddleOfHoney(ItemsFound):
 
 class HoneyBowls(ItemsFound):
     def __init__(self):
-        super(HoneyBowls, self).__init__("Honey Bowls", "none", "honey", 0, "Winnie really loves his honey. ")
+        super(HoneyBowls, self).__init__("Honey Bowls", "none", "honey", 0, "No wonder Winnie is so fat. ")
 
 
 class EvilElmo(Enemy):
@@ -259,7 +259,7 @@ WINNIES_TREEHOUSE = Room("Winnie's Treehouse", None, None, None, None, None, Non
 SECRET_ROOM = Room("Winnie's Secret Room", WINNIES_TREEHOUSE, None, None, None, None, None, None, None, "This is "
                    "This is Winnie's Secret Room. You look around to see if he is in here somewhere. He isn't.",
                    HoneyBowls)
-CREEPY_CAVE = Room("The Creepy Cave", None, None, None, None, WINNIES_TREEHOUSE, None, None,
+CREEPY_CAVE = Room("The Creepy Cave", None, None, None, None, WINNIES_TREEHOUSE, None, None, None,
                    "The cave is extremely dark. There's bats flying everywhere, One of the bats lands on your head, "
                    "so you hit it with your shoes. When it falls a note falls along with it. The note says, 'You "
                    "could go back, or you could continue. You chose?'")
@@ -322,9 +322,11 @@ WONDERFUL_WATERFALL = Room("The Wonderful Waterfall", None, None, VILLAINOUS_VAL
 PAIN_PLATEAU = Room("The Pain Plateau", None, None, None, FIRE_FOREST, VILLAINOUS_VALLEY, WONDERFUL_WATERFALL, None,
                     None,
                     "The Pain Plateau was definitely really painful to climb. When you reach the top there is 2 big "
-                    "rocks. They are completely different, but they have one thing in common: they both have a note. "
+                    "rocks. The are completely different, but they have one thing in common: they both have a note. "
                     "Both of the notes are different one talks about a wonderful place and they other one talks "
-                    "about the worst place ever imaginable. You don't know which way to go.", None, EvilElmo)
+                    "about the worst place ever imaginable. You don't know which way to go, but out of nowhere an evil "
+                    "looking creature comes out from one of the rocks. You look at it closely and realize its Elmo. He "
+                    "throws fire at you  and you dodge it. What will you use to beat him?", None, EvilElmo)
 
 WINNIES_TREEHOUSE.northwest = CREEPY_CAVE
 WINNIES_TREEHOUSE.northeast = DISTURBING_CAVE
@@ -336,7 +338,7 @@ DISTURBING_CAVE.northeast = ROCKY_MOUNTAIN
 DISTURBING_CAVE.east = LOVELY_LAKE
 LOVELY_LAKE.north = ROCKY_MOUNTAIN
 LOVELY_LAKE.south = RAINY_RIVER
-ROCKY_MOUNTAIN.south = RAINY_RIVER
+ROCKY_MOUNTAIN.south = LOVELY_LAKE
 BEAUTY_BEACH.southeast = SLIPPERY_STREET
 SLIPPERY_STREET.southwest = ABANDONED_PARK
 ABANDONED_PARK.southwest = VIGOROUS_VOLCANO
