@@ -327,10 +327,14 @@ PAIN_PLATEAU = Room("The Pain Plateau", None, None, None, FIRE_FOREST, VILLAINOU
                     "about the worst place ever imaginable. You don't know which way to go, but out of nowhere an evil "
                     "looking creature comes out from one of the rocks. You look at it closely and realize its Elmo. He "
                     "throws fire at you  and you dodge it. What will you use to beat him?", None, EvilElmo)
+SECRET_PARTY = Room("Secret Party", None, None, None, None, None, None, None, None, "this is a secret party. no one "
+                    "knows about this, not even winnie the fatass. ")
 
 WINNIES_TREEHOUSE.northwest = CREEPY_CAVE
 WINNIES_TREEHOUSE.northeast = DISTURBING_CAVE
 WINNIES_TREEHOUSE.south = SECRET_ROOM
+WINNIES_TREEHOUSE.yeet = SECRET_PARTY
+SECRET_PARTY.yeehaw = WINNIES_TREEHOUSE
 CREEPY_CAVE.west = POISONOUS_POND
 POISONOUS_POND.south = FIRE_FOREST
 FIRE_FOREST.east = PAIN_PLATEAU
@@ -357,7 +361,7 @@ Dora_the_detective = Character("Dora", 100, sword2, None)
 Evil_Elmo = Character("Possesed Elmo", 100, sword, None)
 
 playing = True
-directions = ['north', 'south', 'east', 'west', 'northeast', 'southeast', 'northwest', 'southwest']
+directions = ['north', 'south', 'east', 'west', 'northeast', 'southeast', 'northwest', 'southwest', 'yeet', 'yeeyeehaw']
 
 # Controller
 while playing:
