@@ -19,7 +19,7 @@
     <SUITE FILE_PATH="coverage/notes$Lizbeth_Perez___Mad_Lib.coverage" NAME="Lizbeth Perez - Mad Lib Coverage Results" MODIFIED="1540912086778" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/notes$Object___Lizbeth_Perez.coverage" NAME="Object - Lizbeth Perez Coverage Results" MODIFIED="1551197416970" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/notes$Inheritance____Lizbeth_Perez.coverage" NAME="Inheritance -  Lizbeth Perez Coverage Results" MODIFIED="1552062205673" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/notes$World_Map_OOP___Lizbeth_Perez.coverage" NAME="World Map OOP - Lizbeth Perez Coverage Results" MODIFIED="1553096509396" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/notes$World_Map_OOP___Lizbeth_Perez.coverage" NAME="World Map OOP - Lizbeth Perez Coverage Results" MODIFIED="1553528093698" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/notes$Lizbeth_Perez___Challenges.coverage" NAME="Lizbeth Perez - Challenges Coverage Results" MODIFIED="1544458747362" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/notes$Object_Notes___Lizbeth_Perez.coverage" NAME="Object Notes - Lizbeth Perez Coverage Results" MODIFIED="1550159963004" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/notes$Dictionary_Notes___Lizbeth_Perez.coverage" NAME="Dictionary Notes - Lizbeth Perez Coverage Results" MODIFIED="1548951877624" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -48,8 +48,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Items - Lizbeth Perez.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2839">
-              <caret line="167" selection-start-line="167" selection-end-line="167" />
+            <state relative-caret-position="-15">
+              <caret line="156" column="21" lean-forward="true" selection-start-line="156" selection-start-column="21" selection-end-line="156" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -57,8 +57,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/World Map OOP - Lizbeth Perez.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="363" column="115" selection-start-line="363" selection-start-column="115" selection-end-line="363" selection-end-column="115" />
+            <state relative-caret-position="172">
+              <caret line="403" column="37" selection-start-line="403" selection-start-column="37" selection-end-line="403" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -103,7 +103,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-124" />
+    <option name="x" value="64" />
+    <option name="y" value="-8" />
     <option name="width" value="1386" />
     <option name="height" value="371" />
   </component>
@@ -130,6 +131,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
@@ -296,12 +298,15 @@
       <workItem from="1552665761598" duration="2362000" />
       <workItem from="1552920892366" duration="2812000" />
       <workItem from="1553007251355" duration="2612000" />
-      <workItem from="1553093646103" duration="2840000" />
+      <workItem from="1553093646103" duration="2912000" />
+      <workItem from="1553180197815" duration="2685000" />
+      <workItem from="1553270682011" duration="1689000" />
+      <workItem from="1553525757597" duration="2197000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40427000" />
+    <option name="totallyTimeSpent" value="47070000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -315,7 +320,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25416037" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.23600605" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" weight="0.32978722" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -323,7 +328,7 @@
       <window_info anchor="bottom" id="Debug" order="2" weight="0.39934534" />
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
-      <window_info active="true" anchor="bottom" id="Run" order="5" sideWeight="0.49924013" visible="true" weight="0.30932897" />
+      <window_info anchor="bottom" id="Run" order="5" sideWeight="0.49924013" weight="0.30605564" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3295082" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
@@ -338,6 +343,30 @@
       <window_info anchor="right" id="SciView" order="3" weight="0.32980332" />
       <window_info anchor="right" id="Database" order="4" weight="0.3290469" />
     </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23600605" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" weight="0.32978722" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Debug" order="2" weight="0.39934534" />
+      <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="5" sideWeight="0.49924013" weight="0.30441898" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3295082" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3295082" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5007599" side_tool="true" weight="0.32131147" />
+      <window_info anchor="bottom" id="Python Console" order="11" weight="0.3295082" />
+      <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Concurrent Activities Diagram" order="13" weight="0.3295082" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="SciView" order="3" weight="0.32980332" />
+      <window_info anchor="right" id="Database" order="4" weight="0.3290469" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -426,13 +455,6 @@
     <entry file="file://$PROJECT_DIR$/Special_Random.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Object Notes - Lizbeth Perez.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Inheritance -  Lizbeth Perez.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -447,17 +469,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Object Notes - Lizbeth Perez.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Items - Lizbeth Perez.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2839">
-          <caret line="167" selection-start-line="167" selection-end-line="167" />
+        <state relative-caret-position="-15">
+          <caret line="156" column="21" lean-forward="true" selection-start-line="156" selection-start-column="21" selection-end-line="156" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/World Map OOP - Lizbeth Perez.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="363" column="115" selection-start-line="363" selection-start-column="115" selection-end-line="363" selection-end-column="115" />
+        <state relative-caret-position="172">
+          <caret line="403" column="37" selection-start-line="403" selection-start-column="37" selection-end-line="403" selection-end-column="37" />
         </state>
       </provider>
     </entry>
