@@ -272,10 +272,10 @@ WINNIES_TREEHOUSE = Room("Winnie's Treehouse", None, None, None, None, None, Non
                          "missing. You look around to see if you could find any clues on what could've "
                          "taken Winnie. Tiger tells you he has been missing for 2 days now. You find a note that says,"
                          "'Both don't have very pleasing names, but both are the same. Which one do you go to? Remember"
-                         " you will have to come back here after your trip.'", first_key)
+                         " you will have to come back here after your trip.'", [first_key])
 SECRET_ROOM = Room("Winnie's Secret Room", WINNIES_TREEHOUSE, None, None, None, None, None, None, None, "This is "
                    "This is Winnie's Secret Room. You look around to see if he is in here somewhere. He isn't.",
-                   HoneyBowls)
+                   [HoneyBowls])
 CREEPY_CAVE = Room("The Creepy Cave", None, None, None, None, WINNIES_TREEHOUSE, None, None, None,
                    "The cave is extremely dark. There's bats flying everywhere, One of the bats lands on your head, "
                    "so you hit it with your shoes. When it falls a note falls along with it. The note says, 'You "
@@ -294,7 +294,7 @@ DISTURBING_CAVE = Room("The Disturbing Cave", None, None, None, None, None, WINN
                        "dripping from the ceiling. On your left you see a big rat with a note on its back. You fight "
                        "the rat for the note until you finally get it. You find a puddle of honey on the floor. "
                        "Winnie must've been here. Maybe you should pick up the honey. The note says, 'You chose this "
-                       "cave. Now where ""do you go?'. ", winnies_puddle_of_honey)
+                       "cave. Now where ""do you go?'. ", [winnies_puddle_of_honey])
 LOVELY_LAKE = Room("The Lovely Lake", None, None, None, DISTURBING_CAVE, None, None, None, None,
                    "The name was definitely a lie. The lake is green and it has a terrible smell coming from it. "
                    "All the animals are at least five feet from it. To the distance you see a little boat with a "
@@ -344,43 +344,25 @@ PAIN_PLATEAU = Room("The Pain Plateau", None, None, None, FIRE_FOREST, VILLAINOU
                     "about the worst place ever imaginable. You don't know which way to go, but out of nowhere an evil "
                     "looking creature comes out from one of the rocks. You look at it closely and realize its Elmo. He "
                     "throws fire at you  and you dodge it. What will you use to beat him?", None, EvilElmo)
-SECRET_PARTY = Room("Secret Party", None, None, None, None, None, None, None, None, "this is a secret party. no one "
-                    "knows about this, not even winnie, so you don't have to worry about winnie finishing all the food."
-                    " to leave type in yeehaw. ")
 
 WINNIES_TREEHOUSE.northwest = CREEPY_CAVE
 WINNIES_TREEHOUSE.northeast = DISTURBING_CAVE
 WINNIES_TREEHOUSE.south = SECRET_ROOM
-WINNIES_TREEHOUSE.yeet = SECRET_PARTY
-SECRET_PARTY.yeehaw = WINNIES_TREEHOUSE
 CREEPY_CAVE.west = POISONOUS_POND
-CREEPY_CAVE.yeet = SECRET_PARTY
 POISONOUS_POND.south = FIRE_FOREST
-POISONOUS_POND.yeet = SECRET_PARTY
 FIRE_FOREST.east = PAIN_PLATEAU
-FIRE_FOREST.yeet = SECRET_PARTY
 DISTURBING_CAVE.northeast = ROCKY_MOUNTAIN
 DISTURBING_CAVE.east = LOVELY_LAKE
-DISTURBING_CAVE.yeet = SECRET_PARTY
 LOVELY_LAKE.north = ROCKY_MOUNTAIN
 LOVELY_LAKE.south = RAINY_RIVER
-LOVELY_LAKE.yeet = SECRET_PARTY
 ROCKY_MOUNTAIN.south = LOVELY_LAKE
-ROCKY_MOUNTAIN.yeet = SECRET_PARTY
 BEAUTY_BEACH.southeast = SLIPPERY_STREET
-BEAUTY_BEACH.yeet = SECRET_PARTY
 SLIPPERY_STREET.southwest = ABANDONED_PARK
-SLIPPERY_STREET.yeet = SECRET_PARTY
 ABANDONED_PARK.southwest = VIGOROUS_VOLCANO
-ABANDONED_PARK.yeet = SECRET_PARTY
 VIGOROUS_VOLCANO.east = VILLAINOUS_VALLEY
 VIGOROUS_VOLCANO.northwest = WONDERFUL_WATERFALL
-VIGOROUS_VOLCANO.yeet = SECRET_PARTY
 VILLAINOUS_VALLEY.northwest = PAIN_PLATEAU
-VILLAINOUS_VALLEY.yeet = SECRET_PARTY
 WONDERFUL_WATERFALL.northeast = PAIN_PLATEAU
-WONDERFUL_WATERFALL.yeet = SECRET_PARTY
-RAINY_RIVER.yeet = SECRET_PARTY
 
 player = Player(WINNIES_TREEHOUSE)
 
@@ -391,16 +373,14 @@ Dora_the_detective = Character("Dora", 100, sword2, None)
 Evil_Elmo = Character("Possesed Elmo", 100, sword, None)
 
 playing = True
-directions = ['north', 'south', 'east', 'west', 'northeast', 'southeast', 'northwest', 'southwest', 'yeet', 'yeehaw'
-              'check']
+directions = ['north', 'south', 'east', 'west', 'northeast', 'southeast', 'northwest', 'southwest']
 
 # Controller
 while playing:
     print(player.current_location.name)
     print(player.current_location.description)
     command = input(">_")
-    if command in ['check', 'c']:
-        print(player.current_location.items.name)
+
     if command.lower() in ['q', 'quit', 'exit']:
         playing = False
     elif command.lower() in directions:
@@ -414,5 +394,13 @@ while playing:
             print("This key does not exist")
         except AttributeError:
             print("I can't go that way.")
+    elif command.lower() in ['check']:
+        if len(player.current_location.items) > 0:
+            print()
+            print("The following items are in the room:")
+            for num, item in enumerate(player.current_location.items):
+                print(str(num + 1) + ": " + item.name)
+        else:
+            print("There are no items in the room")
     else:
-        print("Command Not Recognized")
+        print("Command Not ~Recognized~")
