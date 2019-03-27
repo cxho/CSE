@@ -372,14 +372,16 @@ sword2 = Weapons("Orc Sword", "none", "none", 5, "Another Sword")
 Dora_the_detective = Character("Dora", 100, sword2, None)
 Evil_Elmo = Character("Possesed Elmo", 100, sword, None)
 
+inventory = []
 playing = True
-directions = ['north', 'south', 'east', 'west', 'northeast', 'southeast', 'northwest', 'southwest']
+directions = ['north', 'south', 'east', 'west', 'northeast', 'southeast', 'northwest', 'southwest', 'pick up']
 
 # Controller
 while playing:
     print(player.current_location.name)
     print(player.current_location.description)
     command = input(">_")
+    print()
 
     if command.lower() in ['q', 'quit', 'exit']:
         playing = False
@@ -392,15 +394,20 @@ while playing:
             player.move(room_name)
         except KeyError:
             print("This key does not exist")
+            print()
         except AttributeError:
             print("I can't go that way.")
+            print()
     elif command.lower() in ['check']:
         if len(player.current_location.items) > 0:
             print()
             print("The following items are in the room:")
             for num, item in enumerate(player.current_location.items):
                 print(str(num + 1) + ": " + item.name)
+                print()
         else:
-            print("There are no items in the room")
+            print("There are no items in this room. Ha sucker :(")
+            print()
     else:
         print("Command Not ~Recognized~")
+        print()
