@@ -372,7 +372,8 @@ sword2 = Weapons("Orc Sword", "none", "none", 5, "Another Sword")
 Dora_the_detective = Character("Dora", 100, sword2, None)
 Evil_Elmo = Character("Possesed Elmo", 100, sword, None)
 
-inventory = []
+inventory = [Coffee, Helmet, ChestPlate, Shield, Sword, ToyBaseballBat, BBGun, Knife, BackupAx, Screwdriver, Bible,
+             MedKit, Map, PlasticBag]
 playing = True
 directions = ['north', 'south', 'east', 'west', 'northeast', 'southeast', 'northwest', 'southwest', 'pick up']
 
@@ -406,8 +407,13 @@ while playing:
                 print(str(num + 1) + ": " + item.name)
                 print()
         else:
-            print("There are no items in this room. Ha sucker :(")
+            print("There are no items in this room. Ha sucker >:)")
             print()
+    if command.lower() in ['pick up']:
+        inventory.append(player.current_location.items)
+        print("The item is now in your backpack.")
+        print(inventory)
+    if command.lower() in ["Dora's Backpack", "backpack", "b"]:
+        print(inventory)
     else:
         print("Command Not ~Recognized~")
-        print()
