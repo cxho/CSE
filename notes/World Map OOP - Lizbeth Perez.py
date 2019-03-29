@@ -344,6 +344,8 @@ PAIN_PLATEAU = Room("The Pain Plateau", None, None, None, FIRE_FOREST, VILLAINOU
                     "about the worst place ever imaginable. You don't know which way to go, but out of nowhere an evil "
                     "looking creature comes out from one of the rocks. You look at it closely and realize its Elmo. He "
                     "throws fire at you  and you dodge it. What will you use to beat him?", None, EvilElmo)
+HEEAVEN = Room("Hee Hee Heaven", None, None, None, None, None, None, None, None, "This is Hee Hee Heaven. Michael "
+               "Jackson is our god and we worship him everyday. All hail Hee Hee Man.")
 
 WINNIES_TREEHOUSE.northwest = CREEPY_CAVE
 WINNIES_TREEHOUSE.northeast = DISTURBING_CAVE
@@ -363,6 +365,8 @@ VIGOROUS_VOLCANO.east = VILLAINOUS_VALLEY
 VIGOROUS_VOLCANO.northwest = WONDERFUL_WATERFALL
 VILLAINOUS_VALLEY.northwest = PAIN_PLATEAU
 WONDERFUL_WATERFALL.northeast = PAIN_PLATEAU
+HEEAVEN.out = WINNIES_TREEHOUSE
+
 
 player = Player(WINNIES_TREEHOUSE)
 
@@ -375,7 +379,7 @@ Evil_Elmo = Character("Possesed Elmo", 100, sword, None)
 inventory = [Coffee, Helmet, ChestPlate, Shield, Sword, ToyBaseballBat, BBGun, Knife, BackupAx, Screwdriver, Bible,
              MedKit, Map, PlasticBag]
 playing = True
-directions = ['north', 'south', 'east', 'west', 'northeast', 'southeast', 'northwest', 'southwest', 'pick up']
+directions = ['north', 'south', 'east', 'west', 'northeast', 'southeast', 'northwest', 'southwest', 'pick up', 'out']
 
 # Controller
 while playing:
@@ -407,13 +411,17 @@ while playing:
                 print(str(num + 1) + ": " + item.name)
                 print()
         else:
-            print("There are no items in this room. Ha sucker >:)")
+            print("There are no items in this room.")
             print()
-    if command.lower() in ['pick up']:
+    elif command.lower() in ['pick up']:
         inventory.append(player.current_location.items)
         print("The item is now in your backpack.")
         print(inventory)
-    if command.lower() in ["Dora's Backpack", "backpack", "b"]:
+    elif command.lower() in ["Dora's Backpack", "backpack", "b"]:
         print(inventory)
+        print()
+    elif command.lower() in ['he he man is a god']:
+        player.current_location = HEEAVEN
     else:
         print("Command Not ~Recognized~")
+        print()
