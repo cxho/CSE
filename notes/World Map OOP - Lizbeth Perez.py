@@ -346,6 +346,9 @@ PAIN_PLATEAU = Room("The Pain Plateau", None, None, None, FIRE_FOREST, VILLAINOU
                     "throws fire at you  and you dodge it. What will you use to beat him?", None, EvilElmo)
 HEEAVEN = Room("Hee Hee Heaven", None, None, None, None, None, None, None, None, "This is Hee Hee Heaven. Michael "
                "Jackson is our god and we worship him everyday. All hail Hee Hee Man.")
+HEE_HELL = Room("Hee Hee Hell", None, None, None, None, None, None, None, None, "You are in Hee Hee Hell. We worship "
+                "Miranda Cosgrove here because she is a god. Be like everyone of us in here and sell your soul to "
+                "Miranda, hee hee. ")
 
 WINNIES_TREEHOUSE.northwest = CREEPY_CAVE
 WINNIES_TREEHOUSE.northeast = DISTURBING_CAVE
@@ -366,6 +369,7 @@ VIGOROUS_VOLCANO.northwest = WONDERFUL_WATERFALL
 VILLAINOUS_VALLEY.northwest = PAIN_PLATEAU
 WONDERFUL_WATERFALL.northeast = PAIN_PLATEAU
 HEEAVEN.out = WINNIES_TREEHOUSE
+HEE_HELL.out = WINNIES_TREEHOUSE
 
 
 player = Player(WINNIES_TREEHOUSE)
@@ -420,8 +424,10 @@ while playing:
     elif command.lower() in ["Dora's Backpack", "backpack", "b"]:
         print(inventory)
         print()
-    elif command.lower() in ['he he man is a god']:
+    elif command.lower() in ['hee hee man is a god']:
         player.current_location = HEEAVEN
+    elif command.lower() in ['hee hee woman is a god']:
+        player.current_location = HEE_HELL
     else:
         print("Command Not ~Recognized~")
         print()
