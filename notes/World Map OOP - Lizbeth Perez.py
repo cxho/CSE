@@ -392,7 +392,7 @@ while playing:
     command = input(">_")
     print()
 
-    if command.lower() in ['q', 'quit', 'exit']:
+    if command.lower() in ['q', 'quit', 'exit', 'adios sucker', 'adios']:
         playing = False
     elif command.lower() in directions:
         try:
@@ -420,7 +420,6 @@ while playing:
     elif command.lower() in ['pick up']:
         inventory.append(player.current_location.items)
         print("The item is now in your backpack.")
-        print(inventory)
     elif command.lower() in ["Dora's Backpack", "backpack", "b"]:
         print(inventory)
         print()
