@@ -89,7 +89,8 @@ class HotDrinks(Drinks):
 
 class Coffee(HotDrinks):
     def __init__(self):
-        super(Coffee, self).__init__("Tea", "Tea bag", "How to prepare it", 20, 75, "Energizing and Calming Tea")
+        super(Coffee, self).__init__("Coffee", "Coffee Cup", "How to prepare it", 20, 75, "Energizing and Calming "
+                                     "Coffee")
 
 
 class Armor(BackpackStuff):
@@ -380,8 +381,9 @@ sword2 = Weapons("Orc Sword", "none", "none", 5, "Another Sword")
 Dora_the_detective = Character("Dora", 100, sword2, None)
 Evil_Elmo = Character("Possesed Elmo", 100, sword, None)
 
-inventory = [Coffee, Helmet, ChestPlate, Shield, Sword, ToyBaseballBat, BBGun, Knife, BackupAx, Screwdriver, Bible,
-             MedKit, Map, PlasticBag]
+player.inventory = [yummy_coffee, protective_helmet, protective_chest_plate, only_shield, sword, toy_baseball_bat,
+                    only_bbgun, pointy_knife, backup_ax, a_screwdriver, holy_bible, healing_medkit, ashdown_forest_map,
+                    a_plastic_bag]
 playing = True
 directions = ['north', 'south', 'east', 'west', 'northeast', 'southeast', 'northwest', 'southwest', 'pick up', 'out']
 
@@ -391,9 +393,36 @@ while playing:
     print(player.current_location.description)
     command = input(">_")
     print()
-
     if command.lower() in ['q', 'quit', 'exit', 'adios sucker', 'adios']:
         playing = False
+    if command.lower() in ["dora's backpack", "backpack", "b"]:
+        ting = 0
+        for i in player.inventory:
+            print(player.inventory[ting].name)
+            ting += 1
+    if command.lower() in ['check']:
+        if len(player.current_location.items) > 0:
+            print()
+            print("The following items are in the room:")
+            for num, item in enumerate(player.current_location.items):
+                print(str(num + 1) + ": " + item.name)
+                print()
+        else:
+            print("There are no items in this room.")
+            print()
+    if command.lower() in ['pick up', 'pickup']:
+        choice = input("what will you pick up")
+        number = 0
+        for i in player.current_location.items:
+            if choice == player.current_location.items[number]:
+                player.inventory.append(player.current_location.items[number])
+            number += 1
+        print("The item is now in your backpack.")
+        print()
+    if command.lower() in ['hee hee man is a god']:
+        player.current_location = HEEAVEN
+    if command.lower() in ['hee hee woman is a god']:
+        player.current_location = HEE_HELL
     elif command.lower() in directions:
         try:
             # command = 'north'
@@ -407,26 +436,6 @@ while playing:
         except AttributeError:
             print("I can't go that way.")
             print()
-    elif command.lower() in ['check']:
-        if len(player.current_location.items) > 0:
-            print()
-            print("The following items are in the room:")
-            for num, item in enumerate(player.current_location.items):
-                print(str(num + 1) + ": " + item.name)
-                print()
-        else:
-            print("There are no items in this room.")
-            print()
-    elif command.lower() in ['pick up']:
-        inventory.append(player.current_location.items)
-        print("The item is now in your backpack.")
-    elif command.lower() in ["Dora's Backpack", "backpack", "b"]:
-        print(inventory)
-        print()
-    elif command.lower() in ['hee hee man is a god']:
-        player.current_location = HEEAVEN
-    elif command.lower() in ['hee hee woman is a god']:
-        player.current_location = HEE_HELL
     else:
         print("Command Not ~Recognized~")
         print()
