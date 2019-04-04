@@ -412,18 +412,19 @@ while playing:
             print()
     if command.lower() in ['pick up', 'pickup']:
         choice = input("what will you pick up")
-        number = 0
-        for i in player.current_location.items:
-            if choice == player.current_location.items[number]:
-                player.inventory.append(player.current_location.items[number])
-            number += 1
+
+        number = int(choice)
+        if len(player.current_location.items) >= number > 0:
+            player.inventory.append(player.current_location.items(number - 1))
+            player.current_location.items.pop(number - 1)
+
         print("The item is now in your backpack.")
         print()
     if command.lower() in ['hee hee man is a god']:
         player.current_location = HEEAVEN
     if command.lower() in ['hee hee woman is a god']:
         player.current_location = HEE_HELL
-    elif command.lower() in directions:
+    if command.lower() in directions:
         try:
             # command = 'north'
             room_name = getattr(player.current_location, command)
