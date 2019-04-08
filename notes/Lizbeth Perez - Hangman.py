@@ -1,6 +1,6 @@
 import random
 
-word_bank = ["i am starving", "backpack", "clock", "sweaters", "pizza", "i like turtles", "tables", "camels",
+word_bank = ["i am starving", "bAckpack", "clock", "sweaters", "pizza", "i like turtles", "tables", "camels",
              "dora the explorer", "did you do your homework"]
 guesses_left = 8
 letters_guessed = []
