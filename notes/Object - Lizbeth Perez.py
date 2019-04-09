@@ -1,7 +1,7 @@
 class CellPhone(object):
     def __init__(self, model, color, battery=100, broken=False, signal=True):
         self.model = model
-        self.color = color  # 7 colors of rainbow
+        self.color = color
         self.battery = battery
         self.duration_of_battery = 2  # hours
         self.broken = broken

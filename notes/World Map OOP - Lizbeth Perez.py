@@ -430,7 +430,7 @@ while playing:
             print("There are no items in this room.")
             print()
     elif command.lower() in ['pick up', 'pickup']:
-        choice = input("what will you pick up")
+        choice = input("what will you pick up: ")
 
         number = int(choice)
         if len(player.current_location.items) >= number > 0:
@@ -442,7 +442,7 @@ while playing:
         else:
             print("invalid number")
     elif "drop" in command:
-        choice = input("What will you drop:")
+        choice = input("What will you drop: ")
 
         number = int(choice)
         if len(player.current_location.items) > 0:
