@@ -414,6 +414,9 @@ while playing:
         except AttributeError:
             print("I can't go that way.")
             print()
+
+
+
     elif command.lower() in ["dora's backpack", "backpack", "b"]:
         ting = 0
         for i in player.inventory:
@@ -453,21 +456,21 @@ while playing:
     elif command.lower() in ['hee hee woman is a god']:
         player.current_location = HEE_HELL
     elif command.lower() in ['help', 'ayuda']:
-        print("~The commands for this game are~: ",
-              "pickup, pick up = pick up items",
-              "drop = drop items",
-              "backpack, b = print inventory",
-              "hee hee man is a god = go to Hee Hee Heaven",
-              "hee hee woman is a god = go to Hee Hee Hell",
-              "check = look for items in the room",
-              "~The directions for this game are~:",
-              "north, n",
-              "south, s",
-              "east, e",
-              "west, w",
-              "northeast, ne",
-              "southeast, se",
-              "northwest, nw",
+        print("~The commands for this game are~: "
+              "pickup, pick up = pick up items"
+              "drop = drop items"
+              "backpack, b = print inventory"
+              "hee hee man is a god = go to Hee Hee Heaven"
+              "hee hee woman is a god = go to Hee Hee Hell"
+              "check = look for items in the room"
+              "~The directions for this game are~:"
+              "north, n"
+              "south, s"
+              "east, e"
+              "west, w"
+              "northeast, ne"
+              "southeast, se"
+              "northwest, nw"
               "southwest, sw")
         print()
     else:
