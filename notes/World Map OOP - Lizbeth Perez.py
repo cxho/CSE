@@ -289,7 +289,7 @@ FIRE_FOREST = Room("The Fire Forest", POISONOUS_POND, None, None, None, None, No
                    "You arrive at the forest. You soon realize why it is called the Fire Forest. There's these "
                    "bear-looking animals that shoot fire out there mouth. You look around and you find another note "
                    "written on a rock that says, 'This forest is dangerous, there is items, but there is items you "
-                   "could get to make the rest of the trip easier'.")
+                   "could get to make the rest of the trip easier'.", [backup_ax, pointy_knife, only_shield])
 DISTURBING_CAVE = Room("The Disturbing Cave", None, None, None, None, None, WINNIES_TREEHOUSE, None, None,
                        "This cave is big and really dark. There's animals crawling on the walls and there is liquids "
                        "dripping from the ceiling. On your left you see a big rat with a note on its back. You fight "
@@ -381,8 +381,8 @@ sword2 = Weapons("Orc Sword", "none", "none", 5, "Another Sword")
 Dora_the_detective = Character("Dora", 100, sword2, None)
 Evil_Elmo = Character("Possesed Elmo", 100, sword, None)
 
-player.inventory = [yummy_coffee, protective_helmet, protective_chest_plate, only_shield, a_sword, toy_baseball_bat,
-                    only_bbgun, pointy_knife, backup_ax, a_screwdriver, holy_bible, healing_medkit, ashdown_forest_map,
+player.inventory = [yummy_coffee, protective_helmet, protective_chest_plate, a_sword, toy_baseball_bat,
+                    only_bbgun, a_screwdriver, holy_bible, healing_medkit, ashdown_forest_map,
                     a_plastic_bag]
 
 directions = ['north', 'south', 'east', 'west', 'northeast', 'southeast', 'northwest', 'southwest', 'out']
@@ -453,22 +453,22 @@ while playing:
     elif command.lower() in ['hee hee woman is a god']:
         player.current_location = HEE_HELL
     elif command.lower() in ['help', 'ayuda']:
-        print("~The commands for this game are~: ",
-              "pickup, pick up = pick up items",
-              "drop = drop items",
-              "backpack, b = print inventory",
-              "hee hee man is a god = go to Hee Hee Heaven",
-              "hee hee woman is a god = go to Hee Hee Hell",
-              "check = look for items in the room",
-              "~The directions for this game are~:",
-              "north, n",
-              "south, s",
-              "east, e",
-              "west, w",
-              "northeast, ne",
-              "southeast, se",
-              "northwest, nw",
-              "southwest, sw")
+        print("~The commands for this game are~: \n",
+              "pickup, pick up = pick up items \n",
+              "drop = drop items \n",
+              "backpack, b = print inventory \n",
+              "hee hee man is a god = go to Hee Hee Heaven \n",
+              "hee hee woman is a god = go to Hee Hee Hell \n",
+              "check = look for items in the room \n",
+              "~The directions for this game are~: \n",
+              "north, n \n",
+              "northeast, ne \n",
+              "southeast, se \n"
+              "south, s \n",
+              "east, e \n",
+              "west, w \n",
+              "northwest, nw \n",
+              "southwest, sw \n")
         print()
     else:
         print("Command Not ~Recognized~")

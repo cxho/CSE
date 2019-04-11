@@ -456,22 +456,22 @@ while playing:
     elif command.lower() in ['hee hee woman is a god']:
         player.current_location = HEE_HELL
     elif command.lower() in ['help', 'ayuda']:
-        print("~The commands for this game are~: "
-              "pickup, pick up = pick up items"
-              "drop = drop items"
-              "backpack, b = print inventory"
-              "hee hee man is a god = go to Hee Hee Heaven"
-              "hee hee woman is a god = go to Hee Hee Hell"
-              "check = look for items in the room"
-              "~The directions for this game are~:"
-              "north, n"
-              "south, s"
-              "east, e"
-              "west, w"
-              "northeast, ne"
-              "southeast, se"
-              "northwest, nw"
-              "southwest, sw")
+        print("~The commands for this game are~: \n",
+              "pickup, pick up = pick up items \n",
+              "drop = drop items \n",
+              "backpack, b = print inventory \n",
+              "hee hee man is a god = go to Hee Hee Heaven \n",
+              "hee hee woman is a god = go to Hee Hee Hell \n",
+              "check = look for items in the room \n",
+              "~The directions for this game are~: \n",
+              "north, n \n",
+              "south, s \n",
+              "east, e \n",
+              "west, w \n",
+              "northeast, ne \n",
+              "southeast, se \n"
+              "northwest, nw \n",
+              "southwest, sw \n")
         print()
     else:
         print("Command Not ~Recognized~")
