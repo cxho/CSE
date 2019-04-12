@@ -102,7 +102,7 @@ class Armor(BackpackStuff):
         print("You are now wearing the item.")
 
 
-class Helmet(BackpackStuff):
+class Helmet(Armor):
     def __init__(self):
         super(Helmet, self).__init__("Helmet", "none", "Dora the Destroyer", 78, "Helps protect the head")
 
@@ -114,13 +114,14 @@ class ChestPlate(Armor):
 
 
 class Weapons(BackpackStuff):
-    def __init__(self, name, packaging, labels, protection, description):
-        super(Weapons, self).__init__(name, packaging, labels, protection, description)
+    def __init__(self, name, packaging, labels, protection, damage, description):
+        super(Weapons, self).__init__(name, packaging, labels, protection, damage, description)
+        self.damage = damage
 
 
 class Sword(Weapons):
     def __init__(self):
-        super(Weapons, self).__init__("Magical Honey Sword", "none", "none", 80, "Could cut things in half "
+        super(Weapons, self).__init__("Magical Honey Sword", "none", "none", 80, 40, "Could cut things in half "
                                       "(Even humans)")
 
 
@@ -237,6 +238,27 @@ class Player(object):
         :param newlocation: The variable containing a room object
         """
         self.current_location = newlocation
+
+    def equip(self):
+        print("Which item do you want to equip? (Type in a number)")
+        for num, item in enumerate(self.inventory):
+            print(str(num + 1) + ": " + item.name)
+        print()
+        index = -1
+        while 0 > index or index > len(self.inventory):
+            try:
+                index = int(input(">_"))
+            except ValueError:
+                print("That is not a number")
+        item_to_equip = self.inventory[index - 1]
+
+        if isinstance(item_to_equip, ChestPlate):
+            self.protection = 100
+        if isinstance(item_to_equip, Helmet):
+            self.protection = 100
+        if isinstance(item_to_equip, Sword):
+            self.
+
 
 
 class Dora(Player):
@@ -463,13 +485,21 @@ while playing:
               "~The directions for this game are~: \n",
               "north, n \n",
               "northeast, ne \n",
-              "southeast, se \n"
+              "southeast, se \n",
               "south, s \n",
               "east, e \n",
               "west, w \n",
               "northwest, nw \n",
               "southwest, sw \n")
         print()
+    elif command.lower() in ["equip", "e"]:
+        what = input("weapon or clothing: ")
+        if what.lower() == "clothing":
+            player.equip()
+        elif what.lower() == "weapon":
+            player.equip()
+    elif command.lower() in ["unequip"]:
+        pass
     else:
         print("Command Not ~Recognized~")
         print()
