@@ -115,39 +115,41 @@ class ChestPlate(Armor):
 
 class Weapons(BackpackStuff):
     def __init__(self, name, packaging, labels, protection, damage, description):
-        super(Weapons, self).__init__(name, packaging, labels, protection, damage, description)
+        super(Weapons, self).__init__(name, packaging, labels, protection, description)
         self.damage = damage
+        self.description = description
 
 
 class Sword(Weapons):
     def __init__(self):
-        super(Weapons, self).__init__("Magical Honey Sword", "none", "none", 80, 40, "Could cut things in half "
-                                      "(Even humans)")
+        super(Sword, self).__init__("Magical Honey Sword", "none", "none", 80, 40, "Could cut things in half "
+                                    "(Even humans)")
 
 
 class ToyBaseballBat(Weapons):
     def __init__(self):
-        super(Weapons, self).__init__("Super Dangerous Bat", "none", "none", 67, "Could knock you out with one hit")
+        super(ToyBaseballBat, self).__init__("Super Dangerous Bat", "none", "none", 67, 50, "Could knock you out with "
+                                             "one hit")
 
 
 class BBGun(Weapons):
     def __init__(self):
-        super(Weapons, self).__init__("Scary BB Gun", "none", "none", 56, "Could make you go bye bye")
+        super(BBGun, self).__init__("Scary BB Gun", "none", "none", 56, 28, "Could make you go bye bye")
 
 
 class Knife(Weapons):
     def __init__(self):
-        super(Weapons, self).__init__("Traumatizing Knife", "none", "none", 46, "stabs you until you're dead")
+        super(Knife, self).__init__("Traumatizing Knife", "none", "none", 46, 78, "stabs you until you're dead")
 
 
 class BackupAx(Weapons):
     def __init__(self):
-        super(Weapons, self).__init__("Backup Ax", "none", "none", 70, "Could cut you in half")
+        super(BackupAx, self).__init__("Backup Ax", "none", "none", 70, 67, "Could cut you in half")
 
 
 class Screwdriver(Weapons):
     def __init__(self):
-        super(Screwdriver, self).__init__("Screwdriver", "none", "none", 30, "Could poke you in the eye")
+        super(Screwdriver, self).__init__("Screwdriver", "none", "none", 30, 25, "Could poke you in the eye")
 
 
 class HealingStuff(BackpackStuff):
@@ -254,11 +256,30 @@ class Player(object):
 
         if isinstance(item_to_equip, ChestPlate):
             self.protection = 100
+            print("You have %s protection" % self.protection)
         if isinstance(item_to_equip, Helmet):
             self.protection = 100
         if isinstance(item_to_equip, Sword):
-            self.
-
+            self.damage = 78
+        if isinstance(item_to_equip, ToyBaseballBat):
+            self.damage = 25
+        if isinstance(item_to_equip, BBGun):
+            self.damage = 15
+        if isinstance(item_to_equip, Knife):
+            self.damage = 46
+        if isinstance(item_to_equip, BackupAx):
+            self.damage = 58
+        if isinstance(item_to_equip, Screwdriver):
+            self.damage = 23
+        if isinstance(item_to_equip, MedKit):
+            self.health = 100
+        if isinstance(item_to_equip, Bible):
+            self.damage = 100
+        if isinstance(item_to_equip, Shield):
+            self.protection = 89
+        if isinstance(item_to_equip, Map):
+            self.protection = None
+            print("You have to figure this out on your own sucker.")
 
 
 class Dora(Player):
@@ -397,8 +418,8 @@ HEE_HELL.out = WINNIES_TREEHOUSE
 
 player = Player(WINNIES_TREEHOUSE)
 
-sword = Weapons("Sword", "none", "none", 5, "A sword")
-sword2 = Weapons("Orc Sword", "none", "none", 5, "Another Sword")
+sword = Weapons("Sword", "none", "none", 5, 15, "A sword")
+sword2 = Weapons("Orc Sword", "none", "none", 5, 80, "Another Sword")
 
 Dora_the_detective = Character("Dora", 100, sword2, None)
 Evil_Elmo = Character("Possesed Elmo", 100, sword, None)
