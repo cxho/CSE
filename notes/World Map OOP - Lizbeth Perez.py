@@ -259,26 +259,35 @@ class Player(object):
             print("You have %s protection" % self.protection)
         if isinstance(item_to_equip, Helmet):
             self.protection = 100
+            print("You have %s protection" % self.protection)
         if isinstance(item_to_equip, Sword):
             self.damage = 78
+            print("You could do %s damage with one hit." % self.damage)
         if isinstance(item_to_equip, ToyBaseballBat):
             self.damage = 25
+            print("You could do %s damage with one hit." % self.damage)
         if isinstance(item_to_equip, BBGun):
             self.damage = 15
+            print("You could do %s damage with one hit." % self.damage)
         if isinstance(item_to_equip, Knife):
             self.damage = 46
+            print("You could do %s damage with one hit." % self.damage)
         if isinstance(item_to_equip, BackupAx):
             self.damage = 58
+            print("You could do %s damage with one hit." % self.damage)
         if isinstance(item_to_equip, Screwdriver):
             self.damage = 23
+            print("You could do %s damage with one hit." % self.damage)
         if isinstance(item_to_equip, MedKit):
             self.health = 100
+            print("Your health is now at %s" % self.health)
         if isinstance(item_to_equip, Bible):
             self.damage = 100
+            print("You could do %s damage with one use." % self.damage)
         if isinstance(item_to_equip, Shield):
             self.protection = 89
+            print("You have %s protection" % self.protection)
         if isinstance(item_to_equip, Map):
-            self.protection = None
             print("You have to figure this out on your own sucker.")
 
 
@@ -315,8 +324,8 @@ WINNIES_TREEHOUSE = Room("Winnie's Treehouse", None, None, None, None, None, Non
                          "This is Winnie's Treehouse. You arrived at the place after Tiger told you that he has gone "
                          "missing. You look around to see if you could find any clues on what could've "
                          "taken Winnie. Tiger tells you he has been missing for 2 days now. You find a note that says,"
-                         "'Both don't have very pleasing names, but both are the same. Which one do you go to? Remember"
-                         " you will have to come back here after your trip.'", [first_key])
+                         "'Both don't have very pleasing names, but both are the same. Which one do you go to?",
+                         [first_key])
 SECRET_ROOM = Room("Winnie's Secret Room", WINNIES_TREEHOUSE, None, None, None, None, None, None, None, "This is "
                    "This is Winnie's Secret Room. You look around to see if he is in here somewhere. He isn't.",
                    [HoneyBowls])
@@ -387,7 +396,8 @@ PAIN_PLATEAU = Room("The Pain Plateau", None, None, None, FIRE_FOREST, VILLAINOU
                     "Both of the notes are different one talks about a wonderful place and they other one talks "
                     "about the worst place ever imaginable. You don't know which way to go, but out of nowhere an evil "
                     "looking creature comes out from one of the rocks. You look at it closely and realize its Elmo. He "
-                    "throws fire at you  and you dodge it. What will you use to beat him?", None, EvilElmo)
+                    "throws fire at you and you dodge it. He appears to be possessed. What will you use to beat him?",
+                    None, EvilElmo)
 HEEAVEN = Room("Hee Hee Heaven", None, None, None, None, None, None, None, None, "This is Hee Hee Heaven. Michael "
                "Jackson is our god and we worship him everyday. All hail Hee Hee Man.")
 HEE_HELL = Room("Hee Hee Hell", None, None, None, None, None, None, None, None, "You are in Hee Hee Hell. We worship "
@@ -437,12 +447,10 @@ while playing:
     print(player.current_location.name)
     print(player.current_location.description)
     command = input(">_")
-    print()
-
+    print("")
     if command.lower() in short_directions:
         pos = short_directions.index(command)
         command = directions[pos]
-
     if command.lower() in ['q', 'quit', 'exit', 'adios sucker', 'adios']:
         playing = False
     elif command.lower() in directions:
