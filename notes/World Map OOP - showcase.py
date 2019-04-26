@@ -102,7 +102,7 @@ class Armor(BackpackStuff):
         print("You are now wearing the item.")
 
 
-class Helmet(BackpackStuff):
+class Helmet(Armor):
     def __init__(self):
         super(Helmet, self).__init__("Helmet", "none", "Dora the Destroyer", 78, "Helps protect the head")
 
@@ -114,39 +114,42 @@ class ChestPlate(Armor):
 
 
 class Weapons(BackpackStuff):
-    def __init__(self, name, packaging, labels, protection, description):
+    def __init__(self, name, packaging, labels, protection, damage, description):
         super(Weapons, self).__init__(name, packaging, labels, protection, description)
+        self.damage = damage
+        self.description = description
 
 
 class Sword(Weapons):
     def __init__(self):
-        super(Weapons, self).__init__("Magical Honey Sword", "none", "none", 80, "Could cut things in half "
-                                      "(Even humans)")
+        super(Sword, self).__init__("Magical Honey Sword", "none", "none", 80, 40, "Could cut things in half "
+                                    "(Even humans)")
 
 
 class ToyBaseballBat(Weapons):
     def __init__(self):
-        super(Weapons, self).__init__("Super Dangerous Bat", "none", "none", 67, "Could knock you out with one hit")
+        super(ToyBaseballBat, self).__init__("Super Dangerous Bat", "none", "none", 67, 50, "Could knock you out with "
+                                             "one hit")
 
 
 class BBGun(Weapons):
     def __init__(self):
-        super(Weapons, self).__init__("Scary BB Gun", "none", "none", 56, "Could make you go bye bye")
+        super(BBGun, self).__init__("Scary BB Gun", "none", "none", 56, 28, "Could make you go bye bye")
 
 
 class Knife(Weapons):
     def __init__(self):
-        super(Weapons, self).__init__("Traumatizing Knife", "none", "none", 46, "stabs you until you're dead")
+        super(Knife, self).__init__("Traumatizing Knife", "none", "none", 46, 78, "stabs you until you're dead")
 
 
 class BackupAx(Weapons):
     def __init__(self):
-        super(Weapons, self).__init__("Backup Ax", "none", "none", 70, "Could cut you in half")
+        super(BackupAx, self).__init__("Backup Ax", "none", "none", 70, 67, "Could cut you in half")
 
 
 class Screwdriver(Weapons):
     def __init__(self):
-        super(Screwdriver, self).__init__("Screwdriver", "none", "none", 30, "Could poke you in the eye")
+        super(Screwdriver, self).__init__("Screwdriver", "none", "none", 30, 25, "Could poke you in the eye")
 
 
 class HealingStuff(BackpackStuff):
@@ -238,6 +241,55 @@ class Player(object):
         """
         self.current_location = newlocation
 
+    def equip(self):
+        print("Which item do you want to equip? (Type in a number)")
+        for num, item in enumerate(self.inventory):
+            print(str(num + 1) + ": " + item.name)
+        print()
+        index = -1
+        while 0 > index or index > len(self.inventory):
+            try:
+                index = int(input(">_"))
+            except ValueError:
+                print("That is not a number")
+        item_to_equip = self.inventory[index - 1]
+
+        if isinstance(item_to_equip, ChestPlate):
+            self.protection = 100
+            print("You have %s protection" % self.protection)
+        if isinstance(item_to_equip, Helmet):
+            self.protection = 100
+            print("You have %s protection" % self.protection)
+        if isinstance(item_to_equip, Sword):
+            self.damage = 78
+            print("You could do %s damage with one hit." % self.damage)
+        if isinstance(item_to_equip, ToyBaseballBat):
+            self.damage = 25
+            print("You could do %s damage with one hit." % self.damage)
+        if isinstance(item_to_equip, BBGun):
+            self.damage = 15
+            print("You could do %s damage with one hit." % self.damage)
+        if isinstance(item_to_equip, Knife):
+            self.damage = 46
+            print("You could do %s damage with one hit." % self.damage)
+        if isinstance(item_to_equip, BackupAx):
+            self.damage = 58
+            print("You could do %s damage with one hit." % self.damage)
+        if isinstance(item_to_equip, Screwdriver):
+            self.damage = 23
+            print("You could do %s damage with one hit." % self.damage)
+        if isinstance(item_to_equip, MedKit):
+            self.health = 100
+            print("Your health is now at %s" % self.health)
+        if isinstance(item_to_equip, Bible):
+            self.damage = 100
+            print("You could do %s damage with one use." % self.damage)
+        if isinstance(item_to_equip, Shield):
+            self.protection = 89
+            print("You have %s protection" % self.protection)
+        if isinstance(item_to_equip, Map):
+            print("You have to figure this out on your own sucker.")
+
 
 class Dora(Player):
     def __init__(self):
@@ -272,8 +324,8 @@ WINNIES_TREEHOUSE = Room("Winnie's Treehouse", None, None, None, None, None, Non
                          "This is Winnie's Treehouse. You arrived at the place after Tiger told you that he has gone "
                          "missing. You look around to see if you could find any clues on what could've "
                          "taken Winnie. Tiger tells you he has been missing for 2 days now. You find a note that says,"
-                         "'Both don't have very pleasing names, but both are the same. Which one do you go to? Remember"
-                         " you will have to come back here after your trip.'", [first_key])
+                         "'Both don't have very pleasing names, but both are the same. Which one do you go to?",
+                         [first_key])
 SECRET_ROOM = Room("Winnie's Secret Room", WINNIES_TREEHOUSE, None, None, None, None, None, None, None, "This is "
                    "This is Winnie's Secret Room. You look around to see if he is in here somewhere. He isn't.",
                    [HoneyBowls])
@@ -289,7 +341,7 @@ FIRE_FOREST = Room("The Fire Forest", POISONOUS_POND, None, None, None, None, No
                    "You arrive at the forest. You soon realize why it is called the Fire Forest. There's these "
                    "bear-looking animals that shoot fire out there mouth. You look around and you find another note "
                    "written on a rock that says, 'This forest is dangerous, there is items, but there is items you "
-                   "could get to make the rest of the trip easier'.")
+                   "could get to make the rest of the trip easier'.", [backup_ax, pointy_knife, only_shield])
 DISTURBING_CAVE = Room("The Disturbing Cave", None, None, None, None, None, WINNIES_TREEHOUSE, None, None,
                        "This cave is big and really dark. There's animals crawling on the walls and there is liquids "
                        "dripping from the ceiling. On your left you see a big rat with a note on its back. You fight "
@@ -344,7 +396,8 @@ PAIN_PLATEAU = Room("The Pain Plateau", None, None, None, FIRE_FOREST, VILLAINOU
                     "Both of the notes are different one talks about a wonderful place and they other one talks "
                     "about the worst place ever imaginable. You don't know which way to go, but out of nowhere an evil "
                     "looking creature comes out from one of the rocks. You look at it closely and realize its Elmo. He "
-                    "throws fire at you  and you dodge it. What will you use to beat him?", None, EvilElmo)
+                    "throws fire at you and you dodge it. He appears to be possessed. What will you use to beat him?",
+                    None, EvilElmo)
 HEEAVEN = Room("Hee Hee Heaven", None, None, None, None, None, None, None, None, "This is Hee Hee Heaven. Michael "
                "Jackson is our god and we worship him everyday. All hail Hee Hee Man.")
 HEE_HELL = Room("Hee Hee Hell", None, None, None, None, None, None, None, None, "You are in Hee Hee Hell. We worship "
@@ -375,14 +428,14 @@ HEE_HELL.out = WINNIES_TREEHOUSE
 
 player = Player(WINNIES_TREEHOUSE)
 
-sword = Weapons("Sword", "none", "none", 5, "A sword")
-sword2 = Weapons("Orc Sword", "none", "none", 5, "Another Sword")
+sword = Weapons("Sword", "none", "none", 5, 15, "A sword")
+sword2 = Weapons("Orc Sword", "none", "none", 5, 80, "Another Sword")
 
 Dora_the_detective = Character("Dora", 100, sword2, None)
 Evil_Elmo = Character("Possesed Elmo", 100, sword, None)
 
-player.inventory = [yummy_coffee, protective_helmet, protective_chest_plate, only_shield, a_sword, toy_baseball_bat,
-                    only_bbgun, pointy_knife, backup_ax, a_screwdriver, holy_bible, healing_medkit, ashdown_forest_map,
+player.inventory = [yummy_coffee, protective_helmet, protective_chest_plate, a_sword, toy_baseball_bat,
+                    only_bbgun, a_screwdriver, holy_bible, healing_medkit, ashdown_forest_map,
                     a_plastic_bag]
 
 directions = ['north', 'south', 'east', 'west', 'northeast', 'southeast', 'northwest', 'southwest', 'out']
@@ -394,12 +447,10 @@ while playing:
     print(player.current_location.name)
     print(player.current_location.description)
     command = input(">_")
-    print()
-
+    print("")
     if command.lower() in short_directions:
         pos = short_directions.index(command)
         command = directions[pos]
-
     if command.lower() in ['q', 'quit', 'exit', 'adios sucker', 'adios']:
         playing = False
     elif command.lower() in directions:
@@ -414,9 +465,6 @@ while playing:
         except AttributeError:
             print("I can't go that way.")
             print()
-
-
-
     elif command.lower() in ["dora's backpack", "backpack", "b"]:
         ting = 0
         for i in player.inventory:
@@ -465,14 +513,24 @@ while playing:
               "check = look for items in the room \n",
               "~The directions for this game are~: \n",
               "north, n \n",
+              "northeast, ne \n",
+              "southeast, se \n",
               "south, s \n",
               "east, e \n",
               "west, w \n",
-              "northeast, ne \n",
-              "southeast, se \n"
               "northwest, nw \n",
               "southwest, sw \n")
         print()
+    elif command.lower() in ["equip", "e"]:
+        what = input("weapon or clothing: ")
+        if what.lower() == "clothing":
+            player.equip()
+        elif what.lower() == "weapon":
+            player.equip()
+    elif command.lower() in ["unequip"]:
+        pass
+    elif Bible in PAIN_PLATEAU:
+        print("EvilElmo is now dead")
     else:
         print("Command Not ~Recognized~")
         print()
