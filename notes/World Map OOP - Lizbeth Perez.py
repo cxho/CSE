@@ -378,7 +378,8 @@ ABANDONED_PARK = Room("The Abandoned Park", None, None, None, None, None, None, 
 VIGOROUS_VOLCANO = Room("The Vigorous Volcano", None, None, None, None, None, None, ABANDONED_PARK, None,
                         "The volcano is big and steam is coming out from the top. At the top of the volcano there is a "
                         "surfboard with a paper. You walk on to the top and read the note, which says, 'How are you "
-                        "going to get down.'", None, WinnieThePooh)
+                        "going to get down.' You use the surfboard to get down. When you get there you see Winnie the "
+                        "Pooh. How are you going to attack him. ", None, WinnieThePooh)
 VILLAINOUS_VALLEY = Room("The Villainous Valley", None, None, None, VIGOROUS_VOLCANO, None, None, None, None,
                          "It is really hot and you feel like you are about to faint. You reach into your backpack to "
                          "get water. As you reach into your backpack, you see a small lizard following you. It appears "
