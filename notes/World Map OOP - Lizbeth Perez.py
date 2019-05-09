@@ -530,8 +530,10 @@ while playing:
             player.equip()
     elif command.lower() in ["unequip"]:
         pass
-    elif Bible in PAIN_PLATEAU:
-        print("EvilElmo is now dead")
+    elif player in PAIN_PLATEAU:
+        if 'attack':
+            input("What do you want to use: ")
+            if input = Bible:
     else:
         print("Command Not ~Recognized~")
         print()
