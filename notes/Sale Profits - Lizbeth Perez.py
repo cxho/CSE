@@ -12,5 +12,6 @@ with open("SalesRecords.csv", "r") as old_csv:
         reader = csv.reader(old_csv)
         print("processing...")
         for row in reader:
+            object_sold = row[2]
             profits = row[13]
-            print(profits)
+            print(row[2] + ": " + row[13])
