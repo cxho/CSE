@@ -374,7 +374,10 @@ ABANDONED_PARK = Room("The Abandoned Park", None, None, None, None, None, None, 
                       "There's empty rides and broken cotton candy machines. There's a lot of clown statues, you "
                       "can't tell if they're fake or real. You see one running in the distance and you panic, but "
                       "you realise he is carrying a note, so you start chasing him. Once you finally catch up, "
-                      "you jump him and get the note. The note says, 'Be careful of where you go from here.'")
+                      "you jump him and get the note. The note says, 'Be careful of where you go from here.' "
+                      "In the distance, it appears someone is playing party music. Someone is playing the cha cha slide"
+                      ". This place is abandoned, which makes it creepy, but you join in because its your favorite "
+                      " party song. Cha cha real smooth. ")
 VIGOROUS_VOLCANO = Room("The Vigorous Volcano", None, None, None, None, None, None, ABANDONED_PARK, None,
                         "The volcano is big and steam is coming out from the top. At the top of the volcano there is a "
                         "surfboard with a paper. You walk on to the top and read the note, which says, 'How are you "
@@ -530,6 +533,61 @@ while playing:
             player.equip()
     elif command.lower() in ["unequip"]:
         pass
+    elif command.lower() in ["cha cha real smooth"]:
+        print("To the left, take it back now yall \n",
+              "One hop this time, right foot lets stomp \n",
+              "Left foot let's stomp, cha cha real smooth \n",
+              "Turn it out, to the left \n",
+              "Take it back now y'all \n",
+              "One hop this time, right foot let's stomp \n",
+              "Left foot let's stomp, cha cha now y'all \n",
+              "Now it's time to get funky \n",
+              "To the right now, to the left \n",
+              "Take it back now y'all \n",
+              "One hop this time, one hop this time \n",
+              "Right foot two stomps, left foot two stomps\n",
+              "Slide to the left, slide to the right \n",
+              "Criscross, criscross \n",
+              "Cha cha real smooth \n",
+              "Let's go to work \n",
+              "To the left, take it back now y'all \n",
+              "Two hops this time, two hops this time \n",
+              "Right foot two stomps, left foot two stomps \n",
+              "Hands on your knees, hands on your knees \n",
+              "Get funky with it, aahhhhhhhhhh yaaaa \n",
+              "Come on, cha cha now y'all \n",
+              "Turn it out, to the left \n",
+              "Take it back now y'all \n",
+              "Five hops this time \n",
+              "Right foot let's stomp, left foot let's stomp \n",
+              "Right foot again, left foot again \n",
+              "Right foot let's stomp, left foot let's stomp \n",
+              "Freeze, everybody clap yo hands \n",
+              "Come on y'all, check it out \n",
+              "How low can you go? \n",
+              "Can you go down low? \n",
+              "All the way to da floor? \n",
+              "How low can you go? \n",
+              "Can you bring it to the top? \n",
+              "Like it never never stop? \n",
+              "Can you bring it to the top? \n",
+              "One hop, right foot now \n",
+              "Left foot now y'all \n",
+              "Cha cha real smooth \n",
+              "Turn it down, to the left \n",
+              "Take it back now y'all \n",
+              "One hop this time, one hop this time \n",
+              "Reverse, reverse \n",
+              "Slide to the left, slide to the right \n",
+              "Reverse reverse, reverse reverse \n",
+              "Cha cha now y'all \n",
+              "Cha cha again \n",
+              "Cha cha now y'all \n",
+              "Cha cha again \n",
+              "Turn it down \n",
+              "To the left, that it back now y'all \n",
+              "Two hops two hops, two hops two hops \n")
     else:
         print("Command Not ~Recognized~")
         print("Cha cHA REAL SMOOTH 😊🎉🐱‍👓")
+        print()

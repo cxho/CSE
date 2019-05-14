@@ -1,17 +1,18 @@
 import csv
 
-
-def check(num: list):
-    if 'Fruits' in row:
-        if row[13] >= old_csv:
-            return True
-    return False
-
+items = {}
 
 with open("SalesRecords.csv", "r") as old_csv:
         reader = csv.reader(old_csv)
         print("processing...")
+        total = 0
         for row in reader:
+            if row[0] == 'Region':
+                continue
             object_sold = row[2]
             profits = row[13]
-            print(row[2] + ": " + row[13])
+            if object_sold in items:
+                items[object_sold] += float(profits)
+            else:
+                items[object_sold] = float(profits)
+print(items.values())
