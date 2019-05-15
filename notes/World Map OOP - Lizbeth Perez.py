@@ -484,6 +484,7 @@ while playing:
         else:
             print("There are no items in this room.")
             print()
+
     elif command.lower() in ['pick up', 'pickup']:
         choice = input("what will you pick up: ")
 

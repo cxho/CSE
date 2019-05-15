@@ -15,4 +15,4 @@ with open("SalesRecords.csv", "r") as old_csv:
                 items[object_sold] += float(profits)
             else:
                 items[object_sold] = float(profits)
-print(items.values())
+print(sorted(items.values()))
