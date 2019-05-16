@@ -294,7 +294,8 @@ class Player(object):
 class Dora(Player):
     def __init__(self):
         super(Dora, self).__init__(WINNIES_TREEHOUSE)
-
+    def fight(self):
+        
 
 """
 R19A = Room("R19A")
