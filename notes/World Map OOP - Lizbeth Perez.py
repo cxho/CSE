@@ -1,3 +1,14 @@
+def fight(enemy):
+    print("A %s appears and wants to fight!" % enemy.name)
+    while Dora_the_detective.health > 0 and enemy.health > 0:
+        enemy.attack(Dora_the_detective)
+        if Dora_the_detective.health <= 0:
+            print("GAME OVER")
+            quit(0)
+        input("Press any key to attack")
+        Dora_the_detective.attack(enemy)
+
+
 class Room(object):
     def __init__(self, name, north=None, south=None, east=None, west=None, southeast=None, southwest=None,
                  northeast=None, northwest=None, description="", items=None, character=None):
@@ -218,12 +229,12 @@ class HoneyBowls(ItemsFound):
 
 class EvilElmo(Enemy):
     def __init__(self):
-        super(EvilElmo, self).__init__("Possesed Elmo", 100, BBGun, "none")
+        super(EvilElmo, self).__init__("Possesed Elmo", 100, BBGun(), "none")
 
 
 class WinnieThePooh(Enemy):
     def __init__(self):
-        super(WinnieThePooh, self).__init__("Winnie the Pooh", 100, Sword, ChestPlate)
+        super(WinnieThePooh, self).__init__("Winnie the Pooh", 100, Sword(), ChestPlate())
 
 
 class Player(object):
@@ -294,8 +305,6 @@ class Player(object):
 class Dora(Player):
     def __init__(self):
         super(Dora, self).__init__(WINNIES_TREEHOUSE)
-    def fight(self):
-        
 
 """
 R19A = Room("R19A")
@@ -383,7 +392,7 @@ VIGOROUS_VOLCANO = Room("The Vigorous Volcano", None, None, None, None, None, No
                         "The volcano is big and steam is coming out from the top. At the top of the volcano there is a "
                         "surfboard with a paper. You walk on to the top and read the note, which says, 'How are you "
                         "going to get down.' You use the surfboard to get down. When you get there you see Winnie the "
-                        "Pooh. How are you going to attack him? ", None, WinnieThePooh)
+                        "Pooh. How are you going to attack him? ", None, WinnieThePooh())
 VILLAINOUS_VALLEY = Room("The Villainous Valley", None, None, None, VIGOROUS_VOLCANO, None, None, None, None,
                          "It is really hot and you feel like you are about to faint. You reach into your backpack to "
                          "get water. As you reach into your backpack, you see a small lizard following you. It appears "
@@ -401,8 +410,8 @@ PAIN_PLATEAU = Room("The Pain Plateau", None, None, None, FIRE_FOREST, VILLAINOU
                     "Both of the notes are different one talks about a wonderful place and they other one talks "
                     "about the worst place ever imaginable. You don't know which way to go, but out of nowhere an evil "
                     "looking creature comes out from one of the rocks. You look at it closely and realize its Elmo. He "
-                    "throws fire at you and you dodge it. He appears to be possessed. What will you use to beat him?",
-                    None, EvilElmo)
+                    "throws fire at you and you dodge it. He appears to be possessed.",
+                    None, EvilElmo())
 HEEAVEN = Room("Hee Hee Heaven", None, None, None, None, None, None, None, None, "This is Hee Hee Heaven. Michael "
                "Jackson is our god and we worship him everyday. All hail Hee Hee Man.")
 HEE_HELL = Room("Hee Hee Hell", None, None, None, None, None, None, None, None, "You are in Hee Hee Hell. We worship "
@@ -449,6 +458,9 @@ playing = True
 
 # Controller
 while playing:
+    if player.current_location.character is not None:
+        fight(player.current_location.character)
+        player.current_location.character = None
     print(player.current_location.name)
     print(player.current_location.description)
     command = input(">_")
