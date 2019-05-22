@@ -556,6 +556,17 @@ while playing:
             Dora_the_detective.equip()
     elif command.lower() in ["unequip"]:
         pass
+    elif command.lower() in ['we did it!']:
+        print("we did it \n"
+              "we did it \n"
+              "we did it yeah \n"
+              "lo hicimos \n"
+              "we did it")
+    elif command.lower() in ['vamonos']:
+        print("c'mon vamonos\n"
+              "everybody lets go \n"
+              "c'mon lets get to it \n"
+              "i know that we can do it")
     elif command.lower() in ["cha cha real smooth"]:
         print("To the left, take it back now yall \n",
               "One hop this time, right foot lets stomp \n",
@@ -570,7 +581,7 @@ while playing:
               "One hop this time, one hop this time \n",
               "Right foot two stomps, left foot two stomps\n",
               "Slide to the left, slide to the right \n",
-              "Criscross, criscross \n",
+              "Crisscross, crisscross \n",
               "Cha cha real smooth \n",
               "Let's go to work \n",
               "To the left, take it back now y'all \n",
