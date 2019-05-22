@@ -5,6 +5,8 @@ def fight(enemy):
         if Dora_the_detective.health <= 0:
             print("GAME OVER")
             quit(0)
+        if enemy.health <= 0:
+            print("%s has died. oops!" % enemy.name)
         input("Press any key to attack")
         Dora_the_detective.attack(enemy)
 
@@ -232,11 +234,6 @@ class EvilElmo(Enemy):
         super(EvilElmo, self).__init__("Possesed Elmo", 100, BBGun(), "none")
 
 
-class WinnieThePooh(Enemy):
-    def __init__(self):
-        super(WinnieThePooh, self).__init__("Winnie the Pooh", 100, Sword(), ChestPlate())
-
-
 class Player(object):
     def __init__(self, starting_room):
         self.name = "Dora the Detective"
@@ -244,6 +241,7 @@ class Player(object):
         self.current_location = starting_room
         self.damage = 10
         self.inventory = []
+        self.weapons = a_sword
 
     def move(self, newlocation):
         """
@@ -251,6 +249,16 @@ class Player(object):
         :param newlocation: The variable containing a room object
         """
         self.current_location = newlocation
+
+    def attack(self, target):
+        print("%s attacks %s for %d damage" % (self.name, target.name, self.weapons.damage))
+        target.take_damage(self.weapons.damage)
+
+    def take_damage(self, damage):
+        print("%s has %d health left" % (self.name, self.health))
+        self.health -= damage
+        if self.health < 0:
+            self.health = 0
 
     def equip(self):
         print("Which item do you want to equip? (Type in a number)")
@@ -272,28 +280,28 @@ class Player(object):
             self.protection = 100
             print("You have %s protection" % self.protection)
         if isinstance(item_to_equip, Sword):
-            self.damage = 78
+            Dora_the_detective.damage = 78
             print("You could do %s damage with one hit." % self.damage)
         if isinstance(item_to_equip, ToyBaseballBat):
-            self.damage = 25
+            Dora_the_detective.damage = 50
             print("You could do %s damage with one hit." % self.damage)
         if isinstance(item_to_equip, BBGun):
-            self.damage = 15
+            Dora_the_detective.damage = 15
             print("You could do %s damage with one hit." % self.damage)
         if isinstance(item_to_equip, Knife):
-            self.damage = 46
+            Dora_the_detective.damage = 46
             print("You could do %s damage with one hit." % self.damage)
         if isinstance(item_to_equip, BackupAx):
-            self.damage = 58
+            Dora_the_detective.damage = 58
             print("You could do %s damage with one hit." % self.damage)
         if isinstance(item_to_equip, Screwdriver):
-            self.damage = 23
+            Dora_the_detective.damage = 23
             print("You could do %s damage with one hit." % self.damage)
         if isinstance(item_to_equip, MedKit):
-            self.health = 100
+            Dora_the_detective.health = 100
             print("Your health is now at %s" % self.health)
         if isinstance(item_to_equip, Bible):
-            self.damage = 100
+            Dora_the_detective.damage = 100
             print("You could do %s damage with one use." % self.damage)
         if isinstance(item_to_equip, Shield):
             self.protection = 89
@@ -305,6 +313,7 @@ class Player(object):
 class Dora(Player):
     def __init__(self):
         super(Dora, self).__init__(WINNIES_TREEHOUSE)
+
 
 """
 R19A = Room("R19A")
@@ -329,6 +338,9 @@ only_shield = Shield()
 ashdown_forest_map = Map()
 a_plastic_bag = PlasticBag()
 winnies_puddle_of_honey = PuddleOfHoney()
+
+Evil_Elmo = Character("Possesed Elmo", 100, a_screwdriver, None)
+WinnieThePooh = Character("Winnie the Pooh", 666, toy_baseball_bat, protective_chest_plate)
 
 WINNIES_TREEHOUSE = Room("Winnie's Treehouse", None, None, None, None, None, None, None, None,
                          "This is Winnie's Treehouse. You arrived at the place after Tiger told you that he has gone "
@@ -392,12 +404,12 @@ VIGOROUS_VOLCANO = Room("The Vigorous Volcano", None, None, None, None, None, No
                         "The volcano is big and steam is coming out from the top. At the top of the volcano there is a "
                         "surfboard with a paper. You walk on to the top and read the note, which says, 'How are you "
                         "going to get down.' You use the surfboard to get down. When you get there you see Winnie the "
-                        "Pooh. How are you going to attack him? ", None, WinnieThePooh())
+                        "Pooh. How are you going to attack him? ", None, WinnieThePooh)
 VILLAINOUS_VALLEY = Room("The Villainous Valley", None, None, None, VIGOROUS_VOLCANO, None, None, None, None,
                          "It is really hot and you feel like you are about to faint. You reach into your backpack to "
                          "get water. As you reach into your backpack, you see a small lizard following you. It appears "
                          "to have a note. You read the note and it says, 'How was the last location?'")
-WONDERFUL_WATERFALL = Room("The Wonderful Waterfall", None, None, VILLAINOUS_VALLEY, None, VIGOROUS_VOLCANO, None, None,
+WONDERFUL_WATERFALL = Room("The Wonderful Waterfall", None, None, None, None, VIGOROUS_VOLCANO, None, None,
                            None,
                            "The waterfall was beautiful. It was fresh and it was right what you needed to relax. You "
                            "start picking rocks to see if you could find any note. Finally under one rock, you find "
@@ -411,7 +423,7 @@ PAIN_PLATEAU = Room("The Pain Plateau", None, None, None, FIRE_FOREST, VILLAINOU
                     "about the worst place ever imaginable. You don't know which way to go, but out of nowhere an evil "
                     "looking creature comes out from one of the rocks. You look at it closely and realize its Elmo. He "
                     "throws fire at you and you dodge it. He appears to be possessed.",
-                    None, EvilElmo())
+                    None, Evil_Elmo)
 HEEAVEN = Room("Hee Hee Heaven", None, None, None, None, None, None, None, None, "This is Hee Hee Heaven. Michael "
                "Jackson is our god and we worship him everyday. All hail Hee Hee Man.")
 HEE_HELL = Room("Hee Hee Hell", None, None, None, None, None, None, None, None, "You are in Hee Hee Hell. We worship "
@@ -440,17 +452,14 @@ HEEAVEN.out = WINNIES_TREEHOUSE
 HEE_HELL.out = WINNIES_TREEHOUSE
 
 
-player = Player(WINNIES_TREEHOUSE)
+Dora_the_detective = Player(WINNIES_TREEHOUSE)
 
 sword = Weapons("Sword", "none", "none", 5, 15, "A sword")
 sword2 = Weapons("Orc Sword", "none", "none", 5, 80, "Another Sword")
 
-Dora_the_detective = Character("Dora", 100, sword2, None)
-Evil_Elmo = Character("Possesed Elmo", 100, sword, None)
-
-player.inventory = [yummy_coffee, protective_helmet, protective_chest_plate, a_sword, toy_baseball_bat,
-                    only_bbgun, a_screwdriver, holy_bible, healing_medkit, ashdown_forest_map,
-                    a_plastic_bag]
+Dora_the_detective.inventory = [yummy_coffee, protective_helmet, protective_chest_plate, a_sword, toy_baseball_bat,
+                                only_bbgun, a_screwdriver, holy_bible, healing_medkit, ashdown_forest_map,
+                                a_plastic_bag]
 
 directions = ['north', 'south', 'east', 'west', 'northeast', 'southeast', 'northwest', 'southwest', 'out']
 short_directions = ['n', 's', 'e', 'w', 'ne', 'se', 'nw', 'sw', 'o']
@@ -458,11 +467,11 @@ playing = True
 
 # Controller
 while playing:
-    if player.current_location.character is not None:
-        fight(player.current_location.character)
-        player.current_location.character = None
-    print(player.current_location.name)
-    print(player.current_location.description)
+    if Dora_the_detective.current_location.character is not None:
+        fight(Dora_the_detective.current_location.character)
+        Dora_the_detective.current_location.character = None
+    print(Dora_the_detective.current_location.name)
+    print(Dora_the_detective.current_location.description)
     command = input(">_")
     print("")
     if command.lower() in short_directions:
@@ -473,10 +482,10 @@ while playing:
     elif command.lower() in directions:
         try:
             # command = 'north'
-            room_name = getattr(player.current_location, command)
+            room_name = getattr(Dora_the_detective.current_location, command)
             if room_name is None:
                 raise AttributeError
-            player.move(room_name)
+            Dora_the_detective.move(room_name)
         except KeyError:
             print("This key does not exist")
         except AttributeError:
@@ -484,14 +493,14 @@ while playing:
             print()
     elif command.lower() in ["dora's backpack", "backpack", "b"]:
         ting = 0
-        for i in player.inventory:
-            print(player.inventory[ting].name)
+        for i in Dora_the_detective.inventory:
+            print(Dora_the_detective.inventory[ting].name)
             ting += 1
     elif command.lower() in ['check']:
-        if len(player.current_location.items) > 0:
+        if len(Dora_the_detective.current_location.items) > 0:
             print()
             print("The following items are in the room:")
-            for num, item in enumerate(player.current_location.items):
+            for num, item in enumerate(Dora_the_detective.current_location.items):
                 print(str(num + 1) + ": " + item.name)
                 print()
         else:
@@ -502,9 +511,9 @@ while playing:
         choice = input("what will you pick up: ")
 
         number = int(choice)
-        if len(player.current_location.items) >= number > 0:
-            player.inventory.append(player.current_location.items[number - 1])
-            player.current_location.items.pop(number - 1)
+        if len(Dora_the_detective.current_location.items) >= number > 0:
+            Dora_the_detective.inventory.append(Dora_the_detective.current_location.items[number - 1])
+            Dora_the_detective.current_location.items.pop(number - 1)
 
             print("The item is now in your backpack.")
             print()
@@ -514,13 +523,13 @@ while playing:
         choice = input("What will you drop: ")
 
         number = int(choice)
-        if len(player.current_location.items) > 0:
-            player.current_location.items.append(player.inventory[number - 1])
-            player.inventory.pop(number - 1)
+        if len(Dora_the_detective.current_location.items) > 0:
+            Dora_the_detective.current_location.items.append(Dora_the_detective.inventory[number - 1])
+            Dora_the_detective.inventory.pop(number - 1)
     elif command.lower() in ['hee hee man is a god']:
-        player.current_location = HEEAVEN
+        Dora_the_detective.current_location = HEEAVEN
     elif command.lower() in ['hee hee woman is a god']:
-        player.current_location = HEE_HELL
+        Dora_the_detective.current_location = HEE_HELL
     elif command.lower() in ['help', 'ayuda']:
         print("~The commands for this game are~: \n",
               "pickup, pick up = pick up items \n",
@@ -542,9 +551,9 @@ while playing:
     elif command.lower() in ["equip", "e"]:
         what = input("weapon or clothing: ")
         if what.lower() == "clothing":
-            player.equip()
+            Dora_the_detective.equip()
         elif what.lower() == "weapon":
-            player.equip()
+            Dora_the_detective.equip()
     elif command.lower() in ["unequip"]:
         pass
     elif command.lower() in ["cha cha real smooth"]:
